@@ -1,0 +1,454 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+    <title>4 žhavé novinky v Symfony 3 | Tomas Votruba</title>
+    <meta charset="utf-8">
+    <meta name="robots" content="index, follow">
+
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <meta name="mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+
+    
+    <link rel="alternate" type="application/rss+xml" title="Tomas Votruba Blog RSS" href="/rss.xml">
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,700" rel="stylesheet">
+
+        <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.2.0/css/solid.css" integrity="sha384-wnAC7ln+XN0UKdcPvJvtqIH3jOjs9pnKnq9qX68ImXvOGz2JuFoEiCjT8jyZQX2z" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.2.0/css/brands.css" integrity="sha384-nT8r1Kzllf71iZl81CdFzObMsaLOhqBU1JD2+XoAALbdtWaXDOlWOZTR4v1ktjPE" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.2.0/css/fontawesome.css" integrity="sha384-HbmWTHay9psM8qyzEKPc8odH4DsOuzdejtnr+OFtDmOcIVnhgReQ4GZBH7uwcjf6" crossorigin="anonymous">
+
+        <link href="/assets/bootstrap/bootstrap.min.css?v=928974998" rel="stylesheet" type="text/css" />
+
+    <link href="/assets/prism/prism.css?v=1851053556" rel="stylesheet" type="text/css" />
+
+        <link href="/assets/css/style.css?v=132418799" rel="stylesheet" type="text/css" />
+
+    <link href="/assets/gifplayer/gifplayer.css" rel="stylesheet" type="text/css" />
+
+        <link href="/assets/css/checklist.css?v=238449075" rel="stylesheet" type="text/css" />
+</head>
+    <body>
+        <!-- post_id: 98 -->
+
+        <div class="hidden-sm-down">
+    <nav class="navbar">
+        <div class="container-fluid">
+            <ul>
+                <li id="logo">
+                    <img src="https://avatars1.githubusercontent.com/u/924196?s=60&v=4" class="avatar">
+                    Tomas Votruba
+                </li>
+                <li class="active">
+                    <a href="/">Blog</a>
+                </li>
+                <li class="">
+                    <a href="/php-framework-trends/">Trends</a>
+                </li>
+                <li class="">
+                    <a href="/clusters/">Clusters</a>
+                </li>
+                <li class="">
+                    <a href="/mission/">Mission</a>
+                </li>
+                <li class="">
+                    <a href="/talks/">Talks</a>
+                </li>
+                <li class="">
+                    <a href="/contact/">Contact</a>
+                </li>
+                <li id="top-menu-search">
+                    <form method="get" action="https://www.google.com/search" itemprop="potentialAction" itemscope="" itemtype="http://schema.org/SearchAction">
+                        <meta itemprop="target" content="https://www.google.com/search?q={q}"/>
+                        <input name="sitesearch" value="tomasvotruba.cz" type="hidden"/>
+                        <input itemprop="query-input" type="text" id="search-query" class="form-control" required="required" name="q" placeholder="Search..." autocomplete="off"/>
+                    </form>
+                </li>
+            </ul>
+        </div>
+    </nav>
+</div>
+
+<div class="hidden-md-up">
+    <nav class="navbar" id="mobile-menu">
+        <div class="container">
+            <a href="/" class="col-3 col-sm-3 active">
+                <em class="fas fa-book"></em>
+                <br>
+                PHP Blog
+            </a>
+            <a href="/clusters/" class="col-3 col-sm-3 ">
+                <em class="fas fa-share-alt"></em>
+                <br>
+                Clusters
+            </a>
+            <a href="/php-framework-trends/" class="col-3 col-sm-3 ">
+                <em class="fas fa-chart-bar"></em>
+                <br>
+                Trends
+            </a>
+            <a href="/contact/" class="col-3 col-sm-3 ">
+                <em class="fas fa-phone"></em>
+                <br>
+                Contact
+            </a>
+        </div>
+    </nav>
+
+    <div class="hidden-md-up text-center row" id="top-menu-search-mobile">
+        <!-- inspired and taken from: https://github.com/yegor256/blog/blob/master/_layouts/default.html -->
+        <form method="get" action="https://www.google.com/search" itemprop="potentialAction" itemscope="" itemtype="http://schema.org/SearchAction" class="col-md-12">
+            <meta itemprop="target" content="https://www.google.com/search?q={q}"/>
+            <input name="sitesearch" value="tomasvotruba.cz" type="hidden"/>
+            <input itemprop="query-input" type="text" id="search-query" class="form-control" required="required" name="q" placeholder="Search with Google..." autocomplete="off"/>
+        </form>
+    </div>
+</div>
+
+        <div class="mainContent">
+            <div class="container-fluid" id="post">
+                <h1>4 žhavé novinky v Symfony 3</h1>
+
+                <ul class="list-inline post-metadata">
+    <li class="list-inline-item mr-3">
+        <em class="fas fa-clock fa-fw"></em>
+        <strong>5 min</strong>
+    </li>
+
+    <li class="list-inline-item mr-3">
+        <em class="fas fa-calendar fa-fw"></em>
+        <time datetime="2015-11-Mon">
+            
+                            Mon, Nov 9, 2015
+            
+                    </time>
+    </li>
+
+    
+            <li class="list-inline-item mr-3">
+            <em class="fas fa-fw fa-comments"></em>
+            <a href="https://www.tomasvotruba.cz/blog/2015/11/09/4-zhave-novinky-v-symfony-3/#disqus_thread">X</a> comments
+        </li>
+    
+    </ul>
+
+                                    <div class="card border-danger card-bigger">
+                        <div class="card-header text-white bg-danger">
+                            <strong>This post is deprecated since August 2017</strong>
+                        </div>
+                        <div class="card-body">
+                            This post is available only in Czech and whole website was moved to English.
+                        </div>
+                    </div>
+
+                    <br>
+                
+                
+                <div class="card card-bigger">
+                    <div class="card-body">
+                        V listopadu 2015 má kromě <a href="https://wiki.php.net/rfc/php7timeline">PHP 7</a> a <a href="https://www.drupal.org/node/2605142">Drupalu 8</a>, vyjít i Symfony 3. <strong>Jaké přináší změny a novinky?</strong>
+                    </div>
+                </div>
+
+                
+                <p>Symfony už toho umí opravdu hodně. Nová verze klade velký důraz především na <a href="https://symfony.com/blog/making-the-symfony-experience-exceptional">DX (developer experience)</a>. Přináší nám <strong>jednodušší a jednoznačné API</strong>, <strong>lepší decoupling komponent</strong>, <strong>integraci standardů <a href="https://www.php-fig.org/psr/psr-3/">PSR-3</a> a <a href="https://symfony.com/doc/current/cookbook/psr7.html">PSR-7</a></strong>. A spoustu dalších novinek, díky kterým bude psaní aplikací zase o něco zábavnější.</p>
+<h3 id="v-tomto-clanku-se-dozvis"><a href="#v-tomto-clanku-se-dozvis" class="heading-anchor">V tomto článku se dozvíš</a></h3>
+<ul>
+<li>kdy vyjde která verze a jaký bude jejich praktický dopad</li>
+<li>jaké jsou 4 nejzajímavější novinky</li>
+</ul>
+<h2 id="kdy-vyjde-ktera-verze"><a href="#kdy-vyjde-ktera-verze" class="heading-anchor">Kdy vyjde která verze?</a></h2>
+<p>Zažil jsi migraci ze Symfony 1 na 2 a chceš se vyhnout podobnému masakru? Neměj obavy - novinek je sice spousta, ale Symfony se poučilo a nedá dopustit na <a href="https://symfony.com/doc/current/contributing/code/bc.html">zpětnou kompatibilitu</a>.</p>
+<p>Migrace Symfony 2 na 3 bude značně zjednodušena tím, že <strong>spolu s verzí 3 vyjde i verze 2.8</strong>. <strong>Ta bude mít všechny nové featury verze 3 a bude obsahovat BC vrstvu k sérii 2.x</strong>. Verze 2.8 bude long term support (LTS) - můžeš tak počítat <strong>s podporou až do konce roku 2018</strong>.</p>
+<p><br></p>
+<div class="text-center">
+    <img src="/assets/images/posts/2015/symfony3/release-plan.png" alt="Release plan"><br><em>Verze 2.8 bude LTS. První LTS nové série bude až 3.3 (vyjde v květnu 2017).</em>
+</div>
+<p><br></p>
+<p>Jaké jsou tedy 2 hlavní rozdíly mezi 3.0 a 2.8?</p>
+<ul>
+<li>min. verze PHP 5.5</li>
+<li>odstraněný veškerý deprecated kód, který poskytuje BC kompatibilitu k 2.x (~ 10 % kódu)</li>
+</ul>
+<p><strong>A nyní ke 4 očekávaným novinkám</strong></p>
+<h2 id="1-autowiring-sluzeb"><a href="#1-autowiring-sluzeb" class="heading-anchor">1. Autowiring služeb</a></h2>
+<p>Symfony nyní podporuje constructor autowiring. Při vytváření definice služby tak můžete zapnout <code>autowiring</code> a přeskočit manuální předávání argumentů.
+V českém prostředí je autowiring poměrně populární díky bundlům jako <a href="https://github.com/kutny/autowiring-bundle">Kutny</a> nebo <a href="https://github.com/skrz/autowiring-bundle">Skrz</a>.</p>
+<h3 id="jak-to-v-praxi-vypada"><a href="#jak-to-v-praxi-vypada" class="heading-anchor">Jak to v praxi vypadá?</a></h3>
+<p>Dřívější dlouhý zápis</p>
+<pre><code class="language-yaml"># services.yml
+
+services:
+    myService:
+        class: MyBundle\MyService
+        arguments: [ @dependency1, @dependency2 ]
+
+    dependency1:
+        class: MyBundle\Dependency1
+
+    dependency2:
+        class: MyBundle\Dependency2</code></pre>
+<p>nyní můžeš zkrátit na</p>
+<pre><code class="language-yaml"># services.yml
+
+services:
+    myService:
+        class: MyBundle\MyService
+        autowiring: true</code></pre>
+<h3 id="jak-to-funguje"><a href="#jak-to-funguje" class="heading-anchor">Jak to funguje?</a></h3>
+<p>Dependency Injection container zanalyzuje konstruktor služby a:</p>
+<ul>
+<li>pokud jsou služby dostupné → předá je</li>
+<li>pokud ne → registruje je jako privátní služby</li>
+</ul>
+<h3 id="jak-je-to-s-interface"><a href="#jak-je-to-s-interface" class="heading-anchor">Jak je to s interface?</a></h3>
+<p>Místo konkretního typu služby můžeš vyžádat interface, který služba implementuje. Ale co když máme více služeb jednoho interface (typické pro chain pattern)? Stačí u dané služby explicitně uvést:</p>
+<pre><code class="language-yaml"># services.yml
+
+services:
+    dependency1:
+        class: MyBundle\Dependency1
+        autowiring_types: MyBundle\MyInterface</code></pre>
+<blockquote>
+    Chceš vědět víc? Mrkni na
+    <a href="https://github.com/symfony/symfony/pull/15613">
+        <em class="fab fa-github"></em>
+        pull-request
+    </a>
+</blockquote>
+<hr>
+<h2 id="2-logictejsi-slozky"><a href="#2-logictejsi-slozky" class="heading-anchor">2. Logičtější složky</a></h2>
+<p>Symfony 3 full-stack s sebou přináší řád. Zbaví nás chaosu ve složce <code>/app</code>.</p>
+<h3 id="jak"><a href="#jak" class="heading-anchor">Jak?</a></h3>
+<p>Dočasné soubory, logy, nastavení pro PHPUnit, konzolové soubory...
+<br>To vše má nyní jasné umístění oddělené od kódu naší aplikace.</p>
+<p><br></p>
+<div class="text-center">
+    <img src="/assets/images/posts/2015/symfony3/directory-structure.png" alt="Release plan"><br><em>
+        Console skripty najdeš nyní ve složce <code>/bin</code>.
+        Dočasné soubory <code>/cache</code> a <code>/logs</code> pak ve složce <code>/var</code>.
+    </em>
+</div>
+<p><br></p>
+<p>Testy pak v příkazové řádce spustíš jednoduše přes <code>phpunit</code>.</p>
+<hr>
+<h2 id="3-symfony-profiler-v-novem-kabatku"><a href="#3-symfony-profiler-v-novem-kabatku" class="heading-anchor">3. Symfony profiler v novém kabátku</a></h2>
+<p>Pro programátora je důležitý nejen přehledný kód, ale i přehledné meta-informace o aplikaci. Ty si v Symfony snadno zobrazí
+pomocí Symfony Profileru.</p>
+<p>Ten už zobrazoval tolik informací, že se v něm programátor začal ztrácet. Po 4 letech se konečně dočkal flat designu.</p>
+<p>Důležité informace a hlavně chybové hlášky jsou teď mnohem čitelnější.</p>
+<p><br></p>
+<div class="text-center">
+    <img src="/assets/images/posts/2015/symfony3/profiler-before-after.png" alt="Nový design&gt;
+    &lt;br&gt;
+    &lt;em&gt;Srovnání staré a nové verze&lt;/em&gt;
+&lt;/div&gt;"></div>
+<p><br></p>
+<div class="text-center">
+    <img src="/assets/images/posts/2015/symfony3/profiler-old-new.png" alt="Starý a nový design"><br><em>
+        Dříve bylo těžké se rychle zorientovat ve velkém množství informací.
+        <br>Teď ty důležité najdeš hned na začátku stránky
+    </em>
+</div>
+<p><br></p>
+<div class="text-center">
+    <img src="/assets/images/posts/2015/symfony3/profiler-go-back.gif" alt="Odkaz na stránku"><br><em>Snadno se dostaneš z profileru zpět na stránku</em>
+</div>
+<p><br></p>
+<blockquote>
+    Zajímá tě víc? Mrkni na
+    <a href="https://github.com/symfony/symfony/pull/15523">
+        <em class="fab fa-github"></em>
+        pull-request
+    </a>
+</blockquote>
+<hr>
+<h2 id="4-micro-kernel"><a href="#4-micro-kernel" class="heading-anchor">4. Micro Kernel</a></h2>
+<p>Velkou radost budou mít vývojáři menších aplikací, kteří si rádi užívají komfort ekosystému full-stack Symfony. Před pár dny, 5. listopadu, byl do FrameworkBundle přidán <strong>Micro Kernel</strong>.</p>
+<p>Ten je vhodný právě na aplikace, které vyžadují jednoduchou konfiguraci, bundly a na které Silex nestačí.</p>
+<p>Micro Kernel konkrétně:</p>
+<ul>
+<li>nevyžaduje žádné další konfigurační soubory</li>
+<li>umožňuje přidání extension bez bundlů</li>
+<li>podporuje routování</li>
+</ul>
+<h3 id="jak-takovy-micro-kernel-vypada"><a href="#jak-takovy-micro-kernel-vypada" class="heading-anchor">Jak takový Micro Kernel vypadá?</a></h3>
+<pre><code class="language-php">&lt;?php
+
+use Symfony\Bundle\FrameworkBundle\Kernel\MicroKernelTrait;
+use Symfony\Bundle\FrameworkBundle\FrameworkBundle;
+use Symfony\Component\Config\Loader\LoaderInterface;
+use Symfony\Component\DependencyInjection\ContainerBuilder;
+use Symfony\Component\HttpFoundation\Response;
+use Symfony\Component\HttpKernel\Kernel;
+use Symfony\Component\Routing\RouteCollectionBuilder;
+
+class ConcreteMicroKernel extends Kernel
+{
+    use MicroKernelTrait;
+
+    public function halloweenAction()
+    {
+        return new Response('halloween');
+    }
+
+    public function registerBundles()
+    {
+        return [new FrameworkBundle()];
+    }
+
+    protected function configureRoutes(RouteCollectionBuilder $routes)
+    {
+        $routes-&gt;add('/', 'kernel:halloweenAction');
+    }
+
+    protected function configureContainer(ContainerBuilder $containerBuilder, LoaderInterface $loader)
+    {
+        $containerBuilder-&gt;loadFromExtension('framework', [
+            'secret' =&gt; '$ecret',
+        ]);
+
+        $containerBuilder-&gt;setParameter('title', 'Symfony 3 is painless');
+    }
+}</code></pre>
+<blockquote>
+    Zajímá tě víc? Mrkni na
+    <a href="https://github.com/symfony/symfony/pull/15990">
+        <em class="fab fa-github"></em>
+        pull-request
+    </a>
+</blockquote>
+<hr>
+<h2 id="ted-uz-vis"><a href="#ted-uz-vis" class="heading-anchor">Teď už víš...</a></h2>
+<ul>
+<li>Že verze 2.8 bude LTS a vyjde spolu s verzí 3.0.</li>
+<li>Jak ti autowiring ušetří práci při psaní definicí služeb.</li>
+<li>Jak si uklidit složku <code>/app</code>, aby to dávalo smysl.</li>
+<li>Že práce s profilerem bude daleko přehlednější.</li>
+<li>A že pro malé aplikace máš k dispozici Micro Kernel.</li>
+</ul>
+<h2 id="v-symfony-zase-vedi"><a href="#v-symfony-zase-vedi" class="heading-anchor">V Symfony zase vědí...</a></h2>
+<ul>
+<li>Že když programátor může sáhnout po jednoduším řešení, udělá to.</li>
+</ul>
+<p>Proto se snaží, aby jeho použití bylo bez překážek.</p>
+<p>Už máš chuť si to vyzkoušet? Hned v příštím článku si ukážeme, <em>jak to rozjet v Symfony 3</em>.</p>
+<p><br></p>
+<div class="text-center">
+    <img src="/assets/images/posts/2015/symfony3/you-got-this-meme.png" alt="A máš to"></div>
+<p><br></p>
+
+                <br>
+
+                
+                <div class="row mb-3">
+                    <div class="col-12 col-md-6">
+                        <div class="card mb-4">
+                            <div class="card-body text-center">
+                                <em class="fab fa-fw fa-github"></em>
+                                    Found a typo?
+                                <a href="https://github.com/TomasVotruba/tomasvotruba.cz/edit/master/source/_posts/2015/2015-11-09-4-zhave-novinky-v-symfony-3.md">Fix it</a> to <strong>join team of 64 people</strong> that improve content here
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-12 col-md-6">
+                                                                                                                                
+                                                    <div class="card mb-4">
+                                <div class="card-body bg-success text-white text-center">
+                                    <strong>Next</strong>:
+                                    <a href="/blog/2015/12/20/to-nejlepsi-ze-symfonyconu-2015/">To nejlepší ze SymfonyConu 2015</a>
+                                </div>
+                            </div>
+                                            </div>
+                </div>
+
+                <div class="card mb-5 border-0">
+                    <div class="card-body text-center">
+                        <p>
+                                                            ❤️️ Do you <strong>like</strong> what I write about? Or do you <strong>hate it</strong> but enjoy discussion? 😠
+                                <br>
+                                You can support my writing by throwing a <a href="https://patreon.com/rectorphp">couple bucks at my Patreon</a>
+                                                    </p>
+                    </div>
+                </div>
+
+                <a name="comments"></a>
+
+                <div id="disqus_thread"></div>
+
+<script type="text/javascript">
+    /**
+     *  RECOMMENDED CONFIGURATION VARIABLES: EDIT AND UNCOMMENT THE SECTION BELOW TO INSERT DYNAMIC VALUES FROM YOUR PLATFORM OR CMS.
+     *  LEARN WHY DEFINING THESE VARIABLES IS IMPORTANT: https://disqus.com/admin/universalcode/#configuration-variables
+     */
+    (function() {  // DON'T EDIT BELOW THIS LINE
+        var d = document, s = d.createElement('script');
+
+        s.src = '//' + 'itsworthsharing' + '.disqus.com/embed.js';
+
+        s.setAttribute('data-timestamp', +new Date());
+        (d.head || d.body).appendChild(s);
+    })();
+</script>
+            </div>
+
+            <script id="dsq-count-scr" src="https://itsworthsharing.disqus.com/count.js" async defer></script>
+        </div>
+
+        <script src="/assets/js/jquery-3.3.1.slim.min.js?=417356375"></script>
+<script src="/assets/gifplayer/jquery.gifplayer.js?=90056970"></script>
+<script src="/assets/js/cluster-checklist.js?=1687407065"></script>
+<script src="/assets/js/cluster-expanable.js?=993690479"></script>
+
+<script>
+    ga=function(){ ga.q.push(arguments) };
+    ga.q=[];
+    ga.l=+new Date;
+    ga('create', 'UA-46082345-1', 'auto');
+    ga('send','pageview');
+</script>
+<script src="https://www.google-analytics.com/analytics.js" async defer></script>
+
+<script src="/assets/prism/prism.js"></script>
+
+<script>
+    $('.gifplayer').gifplayer();
+</script>
+
+<div class="text-center mt-5" id="footer">
+    <div class="row">
+        <div class="col-12">
+            Join 17 579 PHP developers every month: <a href="/rss.xml">RSS</a>&nbsp;or&nbsp;<a href="https://twitter.com/votrubaT">@votrubaT</a>
+        </div>
+    </div>
+
+    <p>
+        Build by <a href="/thank-you/">72 people</a>
+
+        <span class="pl-2 pr-2">•</span>
+
+        <a href="https://patreon.com/rectorphp">Support me</a>
+
+        <span class="pl-2 pr-2">•</span>
+
+        <a href="/now/">Now</a>
+
+        <span class="hidden-sm-down">
+            <span class="pl-2 pr-2">•</span>
+            Hosted with <a href="https://www.statie.org/">Statie</a> on <a href="https://github.com/tomasvotruba/tomasvotruba.cz">GitHub</a>
+        </span>
+    </p>
+</div>
+    </body>
+</html>
+
+        <meta property="og:type" content="article" />
+    <meta property="og:title" content="4 žhavé novinky v Symfony 3" />
+    <meta property="og:description" content="V listopadu 2015 má kromě PHP 7 a Drupalu 8, vyjít i Symfony 3. Jaké přináší změny a novinky?" />
+    <meta property="og:url" content="https://www.tomasvotruba.cz/blog/2015/11/09/4-zhave-novinky-v-symfony-3" />
+
+        <meta name="twitter:card" content="summary" />
+    <meta name="twitter:site" content="@votrubaT">
+    <meta name="twitter:title" content="4 žhavé novinky v Symfony 3" />
+    <meta name="twitter:description" content="V listopadu 2015 má kromě PHP 7 a Drupalu 8, vyjít i Symfony 3. Jaké přináší změny a novinky?" />

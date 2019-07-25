@@ -1,0 +1,4369 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+    <title>PHP Framework Trends | Tomas Votruba</title>
+    <meta charset="utf-8">
+    <meta name="robots" content="index, follow">
+
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <meta name="mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+
+    
+    <link rel="alternate" type="application/rss+xml" title="Tomas Votruba Blog RSS" href="/rss.xml">
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,700" rel="stylesheet">
+
+        <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.2.0/css/solid.css" integrity="sha384-wnAC7ln+XN0UKdcPvJvtqIH3jOjs9pnKnq9qX68ImXvOGz2JuFoEiCjT8jyZQX2z" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.2.0/css/brands.css" integrity="sha384-nT8r1Kzllf71iZl81CdFzObMsaLOhqBU1JD2+XoAALbdtWaXDOlWOZTR4v1ktjPE" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.2.0/css/fontawesome.css" integrity="sha384-HbmWTHay9psM8qyzEKPc8odH4DsOuzdejtnr+OFtDmOcIVnhgReQ4GZBH7uwcjf6" crossorigin="anonymous">
+
+        <link href="/assets/bootstrap/bootstrap.min.css?v=1996889673" rel="stylesheet" type="text/css" />
+
+    <link href="/assets/prism/prism.css?v=203572380" rel="stylesheet" type="text/css" />
+
+        <link href="/assets/css/style.css?v=292814444" rel="stylesheet" type="text/css" />
+
+    <link href="/assets/gifplayer/gifplayer.css" rel="stylesheet" type="text/css" />
+
+        <link href="/assets/css/checklist.css?v=1777753503" rel="stylesheet" type="text/css" />
+</head>
+    <body>
+        <div class="hidden-sm-down">
+    <nav class="navbar">
+        <div class="container-fluid">
+            <ul>
+                <li id="logo">
+                    <img src="https://avatars1.githubusercontent.com/u/924196?s=60&v=4" class="avatar">
+                    Tomas Votruba
+                </li>
+                <li class="">
+                    <a href="/">Blog</a>
+                </li>
+                <li class="active">
+                    <a href="/php-framework-trends/">Trends</a>
+                </li>
+                <li class="">
+                    <a href="/clusters/">Clusters</a>
+                </li>
+                <li class="">
+                    <a href="/mission/">Mission</a>
+                </li>
+                <li class="">
+                    <a href="/talks/">Talks</a>
+                </li>
+                <li class="">
+                    <a href="/contact/">Contact</a>
+                </li>
+                <li id="top-menu-search">
+                    <form method="get" action="https://www.google.com/search" itemprop="potentialAction" itemscope="" itemtype="http://schema.org/SearchAction">
+                        <meta itemprop="target" content="https://www.google.com/search?q={q}"/>
+                        <input name="sitesearch" value="tomasvotruba.cz" type="hidden"/>
+                        <input itemprop="query-input" type="text" id="search-query" class="form-control" required="required" name="q" placeholder="Search..." autocomplete="off"/>
+                    </form>
+                </li>
+            </ul>
+        </div>
+    </nav>
+</div>
+
+<div class="hidden-md-up">
+    <nav class="navbar" id="mobile-menu">
+        <div class="container">
+            <a href="/" class="col-3 col-sm-3 ">
+                <em class="fas fa-book"></em>
+                <br>
+                PHP Blog
+            </a>
+            <a href="/clusters/" class="col-3 col-sm-3 ">
+                <em class="fas fa-share-alt"></em>
+                <br>
+                Clusters
+            </a>
+            <a href="/php-framework-trends/" class="col-3 col-sm-3 active">
+                <em class="fas fa-chart-bar"></em>
+                <br>
+                Trends
+            </a>
+            <a href="/contact/" class="col-3 col-sm-3 ">
+                <em class="fas fa-phone"></em>
+                <br>
+                Contact
+            </a>
+        </div>
+    </nav>
+
+    <div class="hidden-md-up text-center row" id="top-menu-search-mobile">
+        <!-- inspired and taken from: https://github.com/yegor256/blog/blob/master/_layouts/default.html -->
+        <form method="get" action="https://www.google.com/search" itemprop="potentialAction" itemscope="" itemtype="http://schema.org/SearchAction" class="col-md-12">
+            <meta itemprop="target" content="https://www.google.com/search?q={q}"/>
+            <input name="sitesearch" value="tomasvotruba.cz" type="hidden"/>
+            <input itemprop="query-input" type="text" id="search-query" class="form-control" required="required" name="q" placeholder="Search with Google..." autocomplete="off"/>
+        </form>
+    </div>
+</div>
+
+        <div id="content">
+            
+<div class="container-fluid">
+    <div class="alert alert-sm alert-info mt-3">
+        Check <a href="/package-downloads-by-version/">Package downloads by version + Adoption</a>
+        and <a href="/testing-packages/">Testing packages</a>
+    </div>
+
+    <h1>PHP Framework Trends</h1>
+
+    <p>
+        <a href="/blog/2019/04/11/trends-of-php-frameworks-in-numbers/">Why was this table created?</a>
+    <p>
+
+    <p>
+        The goal of this table is to get from feelings and opinions of single influencers <strong>to numbers and results in active community</strong>.
+    </p>
+
+    <p>
+        <strong>The absolute numbers show the success in history, the trends show success in recent times</strong>. There is no clear formula to say what combination or number is the best - it's up to you. Often the packages are sort by absolute numbers, which show always the same single one framework, so this table is sort by trends.</p>
+
+    <p>Is some package missing? Good catch! Read about <a href="#methodology">methodology limits</a> to found out why. Also, <strong>this is work of PHP community</strong>, so if you have idea how to improve this and make it more objective, drop me a <a href="#comments">comment</a>.</p>
+
+    <p class="text-muted mb-4 small">Updated at 15. 7. 21:27</p>
+
+    <div class="alert alert-sm alert-warning mt-3 mb-4">
+        <code>symfony/*</code> downloads are cleared from <code>laravel/*</code> downloads. 1 download of Laravel packages = 0 downloads of Symfony packages. <strong>See <a href="https://github.com/TomasVotruba/tomasvotruba.cz/blob/master/src/Packagist/Purifier/InterveningPackagesPurifier.php#L17">full list of packages cleared this way</a></strong>.
+    </div>
+
+    <table class="table table-bordered table-responsive table-striped" id="table">
+        <thead class="thead-inverse">
+            <tr>
+                <th class="text-center w-25">
+                    Framework
+                </th>
+                <th class="text-center w-25">Year Trend</th>
+                <th class="text-center w-25">Monthly Average</th>
+                <th class="text-center w-25">Yearly Total</th>
+            </tr>
+        </thead>
+
+                    <tr>
+                <td>
+                    <a href="#symfony">Symfony</a>
+                </td>
+                <td class="text-right">
+                        <nobr>
+                    <strong>
+                <span class="text-success">+ 33 %</span>
+            </strong>
+            </nobr>
+
+                </td>
+                <td class="text-right">
+                        2 079 202
+
+                </td>
+                <td class="text-right">
+                        661 722 450
+
+                </td>
+
+            </tr>
+                    <tr>
+                <td>
+                    <a href="#doctrine">Doctrine</a>
+                </td>
+                <td class="text-right">
+                        <nobr>
+                    <strong>
+                <span class="text-success">+ 22 %</span>
+            </strong>
+            </nobr>
+
+                </td>
+                <td class="text-right">
+                        1 173 360
+
+                </td>
+                <td class="text-right">
+                        383 285 970
+
+                </td>
+
+            </tr>
+                    <tr>
+                <td>
+                    <a href="#laravel">Laravel</a>
+                </td>
+                <td class="text-right">
+                        <nobr>
+                    <strong>
+                <span class="text-success">+ 16 %</span>
+            </strong>
+            </nobr>
+
+                </td>
+                <td class="text-right">
+                        247 826
+
+                </td>
+                <td class="text-right">
+                        83 632 320
+
+                </td>
+
+            </tr>
+                    <tr>
+                <td>
+                    <a href="#slim">Slim</a>
+                </td>
+                <td class="text-right">
+                        <nobr>
+                    <strong>
+                <span class="text-success">+ 16 %</span>
+            </strong>
+            </nobr>
+
+                </td>
+                <td class="text-right">
+                        10 907
+
+                </td>
+                <td class="text-right">
+                        4 019 490
+
+                </td>
+
+            </tr>
+                    <tr>
+                <td>
+                    <a href="#zend">Zend</a>
+                </td>
+                <td class="text-right">
+                        <nobr>
+                    <strong>
+                <span class="text-success">+ 11 %</span>
+            </strong>
+            </nobr>
+
+                </td>
+                <td class="text-right">
+                        517 047
+
+                </td>
+                <td class="text-right">
+                        177 547 920
+
+                </td>
+
+            </tr>
+                    <tr>
+                <td>
+                    <a href="#yii">Yii</a>
+                </td>
+                <td class="text-right">
+                        <nobr>
+                    <strong>
+                <span class="text-success">+ 8 %</span>
+            </strong>
+            </nobr>
+
+                </td>
+                <td class="text-right">
+                        47 139
+
+                </td>
+                <td class="text-right">
+                        16 911 990
+
+                </td>
+
+            </tr>
+                    <tr>
+                <td>
+                    <a href="#nette">Nette</a>
+                </td>
+                <td class="text-right">
+                        <nobr>
+                    <strong>
+                <span class="text-success">+ 3 %</span>
+            </strong>
+            </nobr>
+
+                </td>
+                <td class="text-right">
+                        22 690
+
+                </td>
+                <td class="text-right">
+                        7 816 230
+
+                </td>
+
+            </tr>
+                    <tr>
+                <td>
+                    <a href="#cakephp">CakePHP</a>
+                </td>
+                <td class="text-right">
+                        <nobr>
+                    <strong>
+                <span class="text-success">+ 1 %</span>
+            </strong>
+            </nobr>
+
+                </td>
+                <td class="text-right">
+                        27 384
+
+                </td>
+                <td class="text-right">
+                        9 741 780
+
+                </td>
+
+            </tr>
+            </table>
+
+    <br>
+
+            <hr>
+
+        <div class="text-center mb-5">
+            <h2 id="symfony">
+                Symfony
+            </h2>
+
+            <p>
+                <a href="#table">Jump up ↑</a>
+            </p>
+        </div>
+
+        <table class="table table-bordered mt-4 mt-4" id="symfony">
+            <thead class="thead-inverse">
+                <tr>
+                    <th class="w-25">Package</th>
+                    <th class="text-center w-25">
+                        Trend Last Year
+                    </th>
+                    <th class="text-center w-25">
+                        Last month Daily
+                    </th>
+                    <th class="text-center w-25">
+                        Total Last Year
+                    </th>
+                </tr>
+            </thead>
+                            <tr>
+                    <td>
+                        <a href="https://packagist.org/packages/symfony/security-core/stats">
+                            security-core
+                        </a>
+                    </td>
+                    <td class="text-right">    <nobr>
+                    <strong>
+                <span class="text-success">+ 188 %</span>
+            </strong>
+            </nobr>
+</td>
+                    <td class="text-right">    15 526
+</td>
+                    <td class="text-right">    3 311 850
+</td>
+                </tr>
+                            <tr>
+                    <td>
+                        <a href="https://packagist.org/packages/symfony/test-pack/stats">
+                            test-pack
+                        </a>
+                    </td>
+                    <td class="text-right">    <nobr>
+                    <strong>
+                <span class="text-success">+ 113 %</span>
+            </strong>
+            </nobr>
+</td>
+                    <td class="text-right">    6 239
+</td>
+                    <td class="text-right">    1 552 890
+</td>
+                </tr>
+                            <tr>
+                    <td>
+                        <a href="https://packagist.org/packages/symfony/polyfill-ctype/stats">
+                            polyfill-ctype
+                        </a>
+                    </td>
+                    <td class="text-right">    <nobr>
+                    <strong>
+                <span class="text-success">+ 92 %</span>
+            </strong>
+            </nobr>
+</td>
+                    <td class="text-right">    60 297
+</td>
+                    <td class="text-right">    17 424 420
+</td>
+                </tr>
+                            <tr>
+                    <td>
+                        <a href="https://packagist.org/packages/symfony/web-link/stats">
+                            web-link
+                        </a>
+                    </td>
+                    <td class="text-right">    <nobr>
+                    <strong>
+                <span class="text-success">+ 87 %</span>
+            </strong>
+            </nobr>
+</td>
+                    <td class="text-right">    8 446
+</td>
+                    <td class="text-right">    2 023 740
+</td>
+                </tr>
+                            <tr>
+                    <td>
+                        <a href="https://packagist.org/packages/symfony/lock/stats">
+                            lock
+                        </a>
+                    </td>
+                    <td class="text-right">    <nobr>
+                    <strong>
+                <span class="text-success">+ 79 %</span>
+            </strong>
+            </nobr>
+</td>
+                    <td class="text-right">    4 087
+</td>
+                    <td class="text-right">    990 960
+</td>
+                </tr>
+                            <tr>
+                    <td>
+                        <a href="https://packagist.org/packages/symfony/property-info/stats">
+                            property-info
+                        </a>
+                    </td>
+                    <td class="text-right">    <nobr>
+                    <strong>
+                <span class="text-success">+ 73 %</span>
+            </strong>
+            </nobr>
+</td>
+                    <td class="text-right">    15 227
+</td>
+                    <td class="text-right">    3 736 770
+</td>
+                </tr>
+                            <tr>
+                    <td>
+                        <a href="https://packagist.org/packages/symfony/maker-bundle/stats">
+                            maker-bundle
+                        </a>
+                    </td>
+                    <td class="text-right">    <nobr>
+                    <strong>
+                <span class="text-success">+ 68 %</span>
+            </strong>
+            </nobr>
+</td>
+                    <td class="text-right">    12 459
+</td>
+                    <td class="text-right">    3 240 600
+</td>
+                </tr>
+                            <tr>
+                    <td>
+                        <a href="https://packagist.org/packages/symfony/options-resolver/stats">
+                            options-resolver
+                        </a>
+                    </td>
+                    <td class="text-right">    <nobr>
+                    <strong>
+                <span class="text-success">+ 62 %</span>
+            </strong>
+            </nobr>
+</td>
+                    <td class="text-right">    27 806
+</td>
+                    <td class="text-right">    6 951 570
+</td>
+                </tr>
+                            <tr>
+                    <td>
+                        <a href="https://packagist.org/packages/symfony/debug-bundle/stats">
+                            debug-bundle
+                        </a>
+                    </td>
+                    <td class="text-right">    <nobr>
+                    <strong>
+                <span class="text-success">+ 61 %</span>
+            </strong>
+            </nobr>
+</td>
+                    <td class="text-right">    10 226
+</td>
+                    <td class="text-right">    2 817 900
+</td>
+                </tr>
+                            <tr>
+                    <td>
+                        <a href="https://packagist.org/packages/symfony/stopwatch/stats">
+                            stopwatch
+                        </a>
+                    </td>
+                    <td class="text-right">    <nobr>
+                    <strong>
+                <span class="text-success">+ 61 %</span>
+            </strong>
+            </nobr>
+</td>
+                    <td class="text-right">    13 917
+</td>
+                    <td class="text-right">    3 576 900
+</td>
+                </tr>
+                            <tr>
+                    <td>
+                        <a href="https://packagist.org/packages/symfony/security-bundle/stats">
+                            security-bundle
+                        </a>
+                    </td>
+                    <td class="text-right">    <nobr>
+                    <strong>
+                <span class="text-success">+ 60 %</span>
+            </strong>
+            </nobr>
+</td>
+                    <td class="text-right">    18 479
+</td>
+                    <td class="text-right">    4 760 430
+</td>
+                </tr>
+                            <tr>
+                    <td>
+                        <a href="https://packagist.org/packages/symfony/workflow/stats">
+                            workflow
+                        </a>
+                    </td>
+                    <td class="text-right">    <nobr>
+                    <strong>
+                <span class="text-success">+ 60 %</span>
+            </strong>
+            </nobr>
+</td>
+                    <td class="text-right">    3 156
+</td>
+                    <td class="text-right">    812 910
+</td>
+                </tr>
+                            <tr>
+                    <td>
+                        <a href="https://packagist.org/packages/symfony/dotenv/stats">
+                            dotenv
+                        </a>
+                    </td>
+                    <td class="text-right">    <nobr>
+                    <strong>
+                <span class="text-success">+ 60 %</span>
+            </strong>
+            </nobr>
+</td>
+                    <td class="text-right">    22 299
+</td>
+                    <td class="text-right">    5 845 500
+</td>
+                </tr>
+                            <tr>
+                    <td>
+                        <a href="https://packagist.org/packages/symfony/twig-bundle/stats">
+                            twig-bundle
+                        </a>
+                    </td>
+                    <td class="text-right">    <nobr>
+                    <strong>
+                <span class="text-success">+ 57 %</span>
+            </strong>
+            </nobr>
+</td>
+                    <td class="text-right">    19 708
+</td>
+                    <td class="text-right">    5 238 150
+</td>
+                </tr>
+                            <tr>
+                    <td>
+                        <a href="https://packagist.org/packages/symfony/flex/stats">
+                            flex
+                        </a>
+                    </td>
+                    <td class="text-right">    <nobr>
+                    <strong>
+                <span class="text-success">+ 57 %</span>
+            </strong>
+            </nobr>
+</td>
+                    <td class="text-right">    20 793
+</td>
+                    <td class="text-right">    5 363 490
+</td>
+                </tr>
+                            <tr>
+                    <td>
+                        <a href="https://packagist.org/packages/symfony/doctrine-bridge/stats">
+                            doctrine-bridge
+                        </a>
+                    </td>
+                    <td class="text-right">    <nobr>
+                    <strong>
+                <span class="text-success">+ 55 %</span>
+            </strong>
+            </nobr>
+</td>
+                    <td class="text-right">    19 916
+</td>
+                    <td class="text-right">    5 243 430
+</td>
+                </tr>
+                            <tr>
+                    <td>
+                        <a href="https://packagist.org/packages/symfony/web-profiler-bundle/stats">
+                            web-profiler-bundle
+                        </a>
+                    </td>
+                    <td class="text-right">    <nobr>
+                    <strong>
+                <span class="text-success">+ 54 %</span>
+            </strong>
+            </nobr>
+</td>
+                    <td class="text-right">    16 100
+</td>
+                    <td class="text-right">    4 271 610
+</td>
+                </tr>
+                            <tr>
+                    <td>
+                        <a href="https://packagist.org/packages/symfony/inflector/stats">
+                            inflector
+                        </a>
+                    </td>
+                    <td class="text-right">    <nobr>
+                    <strong>
+                <span class="text-success">+ 53 %</span>
+            </strong>
+            </nobr>
+</td>
+                    <td class="text-right">    30 134
+</td>
+                    <td class="text-right">    7 977 240
+</td>
+                </tr>
+                            <tr>
+                    <td>
+                        <a href="https://packagist.org/packages/symfony/monolog-bridge/stats">
+                            monolog-bridge
+                        </a>
+                    </td>
+                    <td class="text-right">    <nobr>
+                    <strong>
+                <span class="text-success">+ 53 %</span>
+            </strong>
+            </nobr>
+</td>
+                    <td class="text-right">    19 747
+</td>
+                    <td class="text-right">    5 201 490
+</td>
+                </tr>
+                            <tr>
+                    <td>
+                        <a href="https://packagist.org/packages/symfony/form/stats">
+                            form
+                        </a>
+                    </td>
+                    <td class="text-right">    <nobr>
+                    <strong>
+                <span class="text-success">+ 51 %</span>
+            </strong>
+            </nobr>
+</td>
+                    <td class="text-right">    17 030
+</td>
+                    <td class="text-right">    4 985 310
+</td>
+                </tr>
+                            <tr>
+                    <td>
+                        <a href="https://packagist.org/packages/symfony/asset/stats">
+                            asset
+                        </a>
+                    </td>
+                    <td class="text-right">    <nobr>
+                    <strong>
+                <span class="text-success">+ 50 %</span>
+            </strong>
+            </nobr>
+</td>
+                    <td class="text-right">    18 302
+</td>
+                    <td class="text-right">    4 913 910
+</td>
+                </tr>
+                            <tr>
+                    <td>
+                        <a href="https://packagist.org/packages/symfony/intl/stats">
+                            intl
+                        </a>
+                    </td>
+                    <td class="text-right">    <nobr>
+                    <strong>
+                <span class="text-success">+ 50 %</span>
+            </strong>
+            </nobr>
+</td>
+                    <td class="text-right">    21 373
+</td>
+                    <td class="text-right">    5 939 730
+</td>
+                </tr>
+                            <tr>
+                    <td>
+                        <a href="https://packagist.org/packages/symfony/http-foundation/stats">
+                            http-foundation
+                        </a>
+                    </td>
+                    <td class="text-right">    <nobr>
+                    <strong>
+                <span class="text-success">+ 50 %</span>
+            </strong>
+            </nobr>
+</td>
+                    <td class="text-right">    35 390
+</td>
+                    <td class="text-right">    9 898 530
+</td>
+                </tr>
+                            <tr>
+                    <td>
+                        <a href="https://packagist.org/packages/symfony/framework-bundle/stats">
+                            framework-bundle
+                        </a>
+                    </td>
+                    <td class="text-right">    <nobr>
+                    <strong>
+                <span class="text-success">+ 50 %</span>
+            </strong>
+            </nobr>
+</td>
+                    <td class="text-right">    23 837
+</td>
+                    <td class="text-right">    6 464 640
+</td>
+                </tr>
+                            <tr>
+                    <td>
+                        <a href="https://packagist.org/packages/symfony/property-access/stats">
+                            property-access
+                        </a>
+                    </td>
+                    <td class="text-right">    <nobr>
+                    <strong>
+                <span class="text-success">+ 49 %</span>
+            </strong>
+            </nobr>
+</td>
+                    <td class="text-right">    32 982
+</td>
+                    <td class="text-right">    9 016 920
+</td>
+                </tr>
+                            <tr>
+                    <td>
+                        <a href="https://packagist.org/packages/symfony/templating/stats">
+                            templating
+                        </a>
+                    </td>
+                    <td class="text-right">    <nobr>
+                    <strong>
+                <span class="text-success">+ 49 %</span>
+            </strong>
+            </nobr>
+</td>
+                    <td class="text-right">    11 573
+</td>
+                    <td class="text-right">    3 328 800
+</td>
+                </tr>
+                            <tr>
+                    <td>
+                        <a href="https://packagist.org/packages/symfony/expression-language/stats">
+                            expression-language
+                        </a>
+                    </td>
+                    <td class="text-right">    <nobr>
+                    <strong>
+                <span class="text-success">+ 48 %</span>
+            </strong>
+            </nobr>
+</td>
+                    <td class="text-right">    22 026
+</td>
+                    <td class="text-right">    6 036 210
+</td>
+                </tr>
+                            <tr>
+                    <td>
+                        <a href="https://packagist.org/packages/symfony/web-server-bundle/stats">
+                            web-server-bundle
+                        </a>
+                    </td>
+                    <td class="text-right">    <nobr>
+                    <strong>
+                <span class="text-success">+ 45 %</span>
+            </strong>
+            </nobr>
+</td>
+                    <td class="text-right">    8 805
+</td>
+                    <td class="text-right">    2 542 320
+</td>
+                </tr>
+                            <tr>
+                    <td>
+                        <a href="https://packagist.org/packages/symfony/cache/stats">
+                            cache
+                        </a>
+                    </td>
+                    <td class="text-right">    <nobr>
+                    <strong>
+                <span class="text-success">+ 44 %</span>
+            </strong>
+            </nobr>
+</td>
+                    <td class="text-right">    32 102
+</td>
+                    <td class="text-right">    8 848 350
+</td>
+                </tr>
+                            <tr>
+                    <td>
+                        <a href="https://packagist.org/packages/symfony/twig-bridge/stats">
+                            twig-bridge
+                        </a>
+                    </td>
+                    <td class="text-right">    <nobr>
+                    <strong>
+                <span class="text-success">+ 44 %</span>
+            </strong>
+            </nobr>
+</td>
+                    <td class="text-right">    23 449
+</td>
+                    <td class="text-right">    6 444 090
+</td>
+                </tr>
+                            <tr>
+                    <td>
+                        <a href="https://packagist.org/packages/symfony/proxy-manager-bridge/stats">
+                            proxy-manager-bridge
+                        </a>
+                    </td>
+                    <td class="text-right">    <nobr>
+                    <strong>
+                <span class="text-success">+ 42 %</span>
+            </strong>
+            </nobr>
+</td>
+                    <td class="text-right">    5 167
+</td>
+                    <td class="text-right">    1 155 480
+</td>
+                </tr>
+                            <tr>
+                    <td>
+                        <a href="https://packagist.org/packages/symfony/serializer/stats">
+                            serializer
+                        </a>
+                    </td>
+                    <td class="text-right">    <nobr>
+                    <strong>
+                <span class="text-success">+ 39 %</span>
+            </strong>
+            </nobr>
+</td>
+                    <td class="text-right">    33 486
+</td>
+                    <td class="text-right">    9 997 890
+</td>
+                </tr>
+                            <tr>
+                    <td>
+                        <a href="https://packagist.org/packages/symfony/validator/stats">
+                            validator
+                        </a>
+                    </td>
+                    <td class="text-right">    <nobr>
+                    <strong>
+                <span class="text-success">+ 37 %</span>
+            </strong>
+            </nobr>
+</td>
+                    <td class="text-right">    34 261
+</td>
+                    <td class="text-right">    10 342 650
+</td>
+                </tr>
+                            <tr>
+                    <td>
+                        <a href="https://packagist.org/packages/symfony/website-skeleton/stats">
+                            website-skeleton
+                        </a>
+                    </td>
+                    <td class="text-right">    <nobr>
+                    <strong>
+                <span class="text-success">+ 36 %</span>
+            </strong>
+            </nobr>
+</td>
+                    <td class="text-right">    1 118
+</td>
+                    <td class="text-right">    398 730
+</td>
+                </tr>
+                            <tr>
+                    <td>
+                        <a href="https://packagist.org/packages/symfony/var-dumper/stats">
+                            var-dumper
+                        </a>
+                    </td>
+                    <td class="text-right">    <nobr>
+                    <strong>
+                <span class="text-success">+ 36 %</span>
+            </strong>
+            </nobr>
+</td>
+                    <td class="text-right">    39 754
+</td>
+                    <td class="text-right">    11 672 640
+</td>
+                </tr>
+                            <tr>
+                    <td>
+                        <a href="https://packagist.org/packages/symfony/routing/stats">
+                            routing
+                        </a>
+                    </td>
+                    <td class="text-right">    <nobr>
+                    <strong>
+                <span class="text-success">+ 35 %</span>
+            </strong>
+            </nobr>
+</td>
+                    <td class="text-right">    40 183
+</td>
+                    <td class="text-right">    11 711 160
+</td>
+                </tr>
+                            <tr>
+                    <td>
+                        <a href="https://packagist.org/packages/symfony/http-kernel/stats">
+                            http-kernel
+                        </a>
+                    </td>
+                    <td class="text-right">    <nobr>
+                    <strong>
+                <span class="text-success">+ 35 %</span>
+            </strong>
+            </nobr>
+</td>
+                    <td class="text-right">    36 963
+</td>
+                    <td class="text-right">    10 834 530
+</td>
+                </tr>
+                            <tr>
+                    <td>
+                        <a href="https://packagist.org/packages/symfony/psr-http-message-bridge/stats">
+                            psr-http-message-bridge
+                        </a>
+                    </td>
+                    <td class="text-right">    <nobr>
+                    <strong>
+                <span class="text-success">+ 32 %</span>
+            </strong>
+            </nobr>
+</td>
+                    <td class="text-right">    25 453
+</td>
+                    <td class="text-right">    7 922 130
+</td>
+                </tr>
+                            <tr>
+                    <td>
+                        <a href="https://packagist.org/packages/symfony/filesystem/stats">
+                            filesystem
+                        </a>
+                    </td>
+                    <td class="text-right">    <nobr>
+                    <strong>
+                <span class="text-success">+ 30 %</span>
+            </strong>
+            </nobr>
+</td>
+                    <td class="text-right">    58 244
+</td>
+                    <td class="text-right">    18 423 390
+</td>
+                </tr>
+                            <tr>
+                    <td>
+                        <a href="https://packagist.org/packages/symfony/dependency-injection/stats">
+                            dependency-injection
+                        </a>
+                    </td>
+                    <td class="text-right">    <nobr>
+                    <strong>
+                <span class="text-success">+ 26 %</span>
+            </strong>
+            </nobr>
+</td>
+                    <td class="text-right">    53 946
+</td>
+                    <td class="text-right">    16 801 140
+</td>
+                </tr>
+                            <tr>
+                    <td>
+                        <a href="https://packagist.org/packages/symfony/config/stats">
+                            config
+                        </a>
+                    </td>
+                    <td class="text-right">    <nobr>
+                    <strong>
+                <span class="text-success">+ 25 %</span>
+            </strong>
+            </nobr>
+</td>
+                    <td class="text-right">    53 691
+</td>
+                    <td class="text-right">    16 785 090
+</td>
+                </tr>
+                            <tr>
+                    <td>
+                        <a href="https://packagist.org/packages/symfony/browser-kit/stats">
+                            browser-kit
+                        </a>
+                    </td>
+                    <td class="text-right">    <nobr>
+                    <strong>
+                <span class="text-success">+ 24 %</span>
+            </strong>
+            </nobr>
+</td>
+                    <td class="text-right">    41 225
+</td>
+                    <td class="text-right">    13 065 840
+</td>
+                </tr>
+                            <tr>
+                    <td>
+                        <a href="https://packagist.org/packages/symfony/process/stats">
+                            process
+                        </a>
+                    </td>
+                    <td class="text-right">    <nobr>
+                    <strong>
+                <span class="text-success">+ 20 %</span>
+            </strong>
+            </nobr>
+</td>
+                    <td class="text-right">    35 513
+</td>
+                    <td class="text-right">    12 185 760
+</td>
+                </tr>
+                            <tr>
+                    <td>
+                        <a href="https://packagist.org/packages/symfony/phpunit-bridge/stats">
+                            phpunit-bridge
+                        </a>
+                    </td>
+                    <td class="text-right">    <nobr>
+                    <strong>
+                <span class="text-success">+ 20 %</span>
+            </strong>
+            </nobr>
+</td>
+                    <td class="text-right">    30 006
+</td>
+                    <td class="text-right">    9 820 200
+</td>
+                </tr>
+                            <tr>
+                    <td>
+                        <a href="https://packagist.org/packages/symfony/css-selector/stats">
+                            css-selector
+                        </a>
+                    </td>
+                    <td class="text-right">    <nobr>
+                    <strong>
+                <span class="text-success">+ 19 %</span>
+            </strong>
+            </nobr>
+</td>
+                    <td class="text-right">    109 192
+</td>
+                    <td class="text-right">    35 388 390
+</td>
+                </tr>
+                            <tr>
+                    <td>
+                        <a href="https://packagist.org/packages/symfony/translation/stats">
+                            translation
+                        </a>
+                    </td>
+                    <td class="text-right">    <nobr>
+                    <strong>
+                <span class="text-success">+ 18 %</span>
+            </strong>
+            </nobr>
+</td>
+                    <td class="text-right">    123 487
+</td>
+                    <td class="text-right">    40 315 170
+</td>
+                </tr>
+                            <tr>
+                    <td>
+                        <a href="https://packagist.org/packages/symfony/dom-crawler/stats">
+                            dom-crawler
+                        </a>
+                    </td>
+                    <td class="text-right">    <nobr>
+                    <strong>
+                <span class="text-success">+ 16 %</span>
+            </strong>
+            </nobr>
+</td>
+                    <td class="text-right">    56 617
+</td>
+                    <td class="text-right">    18 735 300
+</td>
+                </tr>
+                            <tr>
+                    <td>
+                        <a href="https://packagist.org/packages/symfony/debug/stats">
+                            debug
+                        </a>
+                    </td>
+                    <td class="text-right">    <nobr>
+                    <strong>
+                <span class="text-success">+ 13 %</span>
+            </strong>
+            </nobr>
+</td>
+                    <td class="text-right">    58 004
+</td>
+                    <td class="text-right">    19 824 720
+</td>
+                </tr>
+                            <tr>
+                    <td>
+                        <a href="https://packagist.org/packages/symfony/yaml/stats">
+                            yaml
+                        </a>
+                    </td>
+                    <td class="text-right">    <nobr>
+                    <strong>
+                <span class="text-success">+ 12 %</span>
+            </strong>
+            </nobr>
+</td>
+                    <td class="text-right">    96 761
+</td>
+                    <td class="text-right">    33 079 770
+</td>
+                </tr>
+                            <tr>
+                    <td>
+                        <a href="https://packagist.org/packages/symfony/polyfill-intl-icu/stats">
+                            polyfill-intl-icu
+                        </a>
+                    </td>
+                    <td class="text-right">    <nobr>
+                    <strong>
+                <span class="text-success">+ 12 %</span>
+            </strong>
+            </nobr>
+</td>
+                    <td class="text-right">    38 035
+</td>
+                    <td class="text-right">    13 073 640
+</td>
+                </tr>
+                            <tr>
+                    <td>
+                        <a href="https://packagist.org/packages/symfony/event-dispatcher/stats">
+                            event-dispatcher
+                        </a>
+                    </td>
+                    <td class="text-right">    <nobr>
+                    <strong>
+                <span class="text-success">+ 10 %</span>
+            </strong>
+            </nobr>
+</td>
+                    <td class="text-right">    52 544
+</td>
+                    <td class="text-right">    18 337 770
+</td>
+                </tr>
+                            <tr>
+                    <td>
+                        <a href="https://packagist.org/packages/symfony/console/stats">
+                            console
+                        </a>
+                    </td>
+                    <td class="text-right">    <nobr>
+                    <strong>
+                <span class="text-success">+ 10 %</span>
+            </strong>
+            </nobr>
+</td>
+                    <td class="text-right">    36 906
+</td>
+                    <td class="text-right">    14 060 520
+</td>
+                </tr>
+                            <tr>
+                    <td>
+                        <a href="https://packagist.org/packages/symfony/monolog-bundle/stats">
+                            monolog-bundle
+                        </a>
+                    </td>
+                    <td class="text-right">    <nobr>
+                    <strong>
+                <span class="text-success">+ 9 %</span>
+            </strong>
+            </nobr>
+</td>
+                    <td class="text-right">    37 259
+</td>
+                    <td class="text-right">    12 522 810
+</td>
+                </tr>
+                            <tr>
+                    <td>
+                        <a href="https://packagist.org/packages/symfony/swiftmailer-bundle/stats">
+                            swiftmailer-bundle
+                        </a>
+                    </td>
+                    <td class="text-right">    <nobr>
+                    <strong>
+                <span class="text-success">+ 8 %</span>
+            </strong>
+            </nobr>
+</td>
+                    <td class="text-right">    29 438
+</td>
+                    <td class="text-right">    10 393 830
+</td>
+                </tr>
+                            <tr>
+                    <td>
+                        <a href="https://packagist.org/packages/symfony/finder/stats">
+                            finder
+                        </a>
+                    </td>
+                    <td class="text-right">    <nobr>
+                    <strong>
+                <span class="text-success">+ 7 %</span>
+            </strong>
+            </nobr>
+</td>
+                    <td class="text-right">    24 216
+</td>
+                    <td class="text-right">    9 191 220
+</td>
+                </tr>
+                            <tr>
+                    <td>
+                        <a href="https://packagist.org/packages/symfony/polyfill-util/stats">
+                            polyfill-util
+                        </a>
+                    </td>
+                    <td class="text-right">    <nobr>
+                    <strong>
+                <span class="text-success">+ 1 %</span>
+            </strong>
+            </nobr>
+</td>
+                    <td class="text-right">    49 904
+</td>
+                    <td class="text-right">    18 370 170
+</td>
+                </tr>
+                            <tr>
+                    <td>
+                        <a href="https://packagist.org/packages/symfony/polyfill-php56/stats">
+                            polyfill-php56
+                        </a>
+                    </td>
+                    <td class="text-right">    <nobr>
+                    <strong>
+                <span class="text-success">+ 1 %</span>
+            </strong>
+            </nobr>
+</td>
+                    <td class="text-right">    49 849
+</td>
+                    <td class="text-right">    18 354 870
+</td>
+                </tr>
+                            <tr>
+                    <td>
+                        <a href="https://packagist.org/packages/symfony/polyfill-mbstring/stats">
+                            polyfill-mbstring
+                        </a>
+                    </td>
+                    <td class="text-right">    <nobr>
+                    <strong>
+                <span class="text-success">+ 1 %</span>
+            </strong>
+            </nobr>
+</td>
+                    <td class="text-right">    60 052
+</td>
+                    <td class="text-right">    24 032 670
+</td>
+                </tr>
+                            <tr>
+                    <td>
+                        <a href="https://packagist.org/packages/symfony/security-acl/stats">
+                            security-acl
+                        </a>
+                    </td>
+                    <td class="text-right">    <nobr>
+                    <span class="text-danger">- 1 %</span>
+            </nobr>
+</td>
+                    <td class="text-right">    10 998
+</td>
+                    <td class="text-right">    4 252 710
+</td>
+                </tr>
+                            <tr>
+                    <td>
+                        <a href="https://packagist.org/packages/symfony/polyfill-apcu/stats">
+                            polyfill-apcu
+                        </a>
+                    </td>
+                    <td class="text-right">    <nobr>
+                    <span class="text-danger">- 5 %</span>
+            </nobr>
+</td>
+                    <td class="text-right">    25 748
+</td>
+                    <td class="text-right">    10 302 600
+</td>
+                </tr>
+                            <tr>
+                    <td>
+                        <a href="https://packagist.org/packages/symfony/class-loader/stats">
+                            class-loader
+                        </a>
+                    </td>
+                    <td class="text-right">    <nobr>
+                    <span class="text-danger">- 8 %</span>
+            </nobr>
+</td>
+                    <td class="text-right">    24 274
+</td>
+                    <td class="text-right">    9 533 040
+</td>
+                </tr>
+                            <tr>
+                    <td>
+                        <a href="https://packagist.org/packages/symfony/symfony/stats">
+                            symfony
+                        </a>
+                    </td>
+                    <td class="text-right">    <nobr>
+                    <span class="text-danger">- 8 %</span>
+            </nobr>
+</td>
+                    <td class="text-right">    22 815
+</td>
+                    <td class="text-right">    9 222 330
+</td>
+                </tr>
+                            <tr>
+                    <td>
+                        <a href="https://packagist.org/packages/symfony/polyfill-php55/stats">
+                            polyfill-php55
+                        </a>
+                    </td>
+                    <td class="text-right">    <nobr>
+                    <span class="text-danger">- 9 %</span>
+            </nobr>
+</td>
+                    <td class="text-right">    10 904
+</td>
+                    <td class="text-right">    4 682 160
+</td>
+                </tr>
+                            <tr>
+                    <td>
+                        <a href="https://packagist.org/packages/symfony/polyfill-php54/stats">
+                            polyfill-php54
+                        </a>
+                    </td>
+                    <td class="text-right">    <nobr>
+                    <span class="text-danger">- 9 %</span>
+            </nobr>
+</td>
+                    <td class="text-right">    10 591
+</td>
+                    <td class="text-right">    4 562 580
+</td>
+                </tr>
+                            <tr>
+                    <td>
+                        <a href="https://packagist.org/packages/symfony/polyfill-php70/stats">
+                            polyfill-php70
+                        </a>
+                    </td>
+                    <td class="text-right">    <nobr>
+                    <span class="text-danger">- 10 %</span>
+            </nobr>
+</td>
+                    <td class="text-right">    36 681
+</td>
+                    <td class="text-right">    16 185 540
+</td>
+                </tr>
+                            <tr>
+                    <td>
+                        <a href="https://packagist.org/packages/symfony/thanks/stats">
+                            thanks
+                        </a>
+                    </td>
+                    <td class="text-right">    <nobr>
+                    <span class="text-danger">- 11 %</span>
+            </nobr>
+</td>
+                    <td class="text-right">    5 071
+</td>
+                    <td class="text-right">    2 037 720
+</td>
+                </tr>
+                            <tr>
+                    <td>
+                        <a href="https://packagist.org/packages/symfony/assetic-bundle/stats">
+                            assetic-bundle
+                        </a>
+                    </td>
+                    <td class="text-right">    <nobr>
+                    <span class="text-danger">- 17 %</span>
+            </nobr>
+</td>
+                    <td class="text-right">    9 290
+</td>
+                    <td class="text-right">    4 154 250
+</td>
+                </tr>
+                            <tr>
+                    <td>
+                        <a href="https://packagist.org/packages/symfony/security/stats">
+                            security
+                        </a>
+                    </td>
+                    <td class="text-right">    <nobr>
+                    <span class="text-danger">- 18 %</span>
+            </nobr>
+</td>
+                    <td class="text-right">    9 090
+</td>
+                    <td class="text-right">    3 688 260
+</td>
+                </tr>
+                            <tr>
+                    <td>
+                        <a href="https://packagist.org/packages/symfony/lts/stats">
+                            lts
+                        </a>
+                    </td>
+                    <td class="text-right">    <nobr>
+                    <span class="text-danger">- 51 %</span>
+            </nobr>
+</td>
+                    <td class="text-right">    2 718
+</td>
+                    <td class="text-right">    1 882 440
+</td>
+                </tr>
+                            <tr>
+                    <td>
+                        <a href="https://packagist.org/packages/symfony/polyfill-php72/stats">
+                            polyfill-php72
+                        </a>
+                    </td>
+                    <td class="text-right">    <nobr>
+                    <span class="text-danger">- 73 %</span>
+            </nobr>
+</td>
+                    <td class="text-right">    8 317
+</td>
+                    <td class="text-right">    -4 339 320
+</td>
+                </tr>
+                    </table>
+            <hr>
+
+        <div class="text-center mb-5">
+            <h2 id="doctrine">
+                Doctrine
+            </h2>
+
+            <p>
+                <a href="#table">Jump up ↑</a>
+            </p>
+        </div>
+
+        <table class="table table-bordered mt-4 mt-4" id="doctrine">
+            <thead class="thead-inverse">
+                <tr>
+                    <th class="w-25">Package</th>
+                    <th class="text-center w-25">
+                        Trend Last Year
+                    </th>
+                    <th class="text-center w-25">
+                        Last month Daily
+                    </th>
+                    <th class="text-center w-25">
+                        Total Last Year
+                    </th>
+                </tr>
+            </thead>
+                            <tr>
+                    <td>
+                        <a href="https://packagist.org/packages/doctrine/event-manager/stats">
+                            event-manager
+                        </a>
+                    </td>
+                    <td class="text-right">    <nobr>
+                    <strong>
+                <span class="text-success">+ 102 %</span>
+            </strong>
+            </nobr>
+</td>
+                    <td class="text-right">    64 475
+</td>
+                    <td class="text-right">    16 915 020
+</td>
+                </tr>
+                            <tr>
+                    <td>
+                        <a href="https://packagist.org/packages/doctrine/persistence/stats">
+                            persistence
+                        </a>
+                    </td>
+                    <td class="text-right">    <nobr>
+                    <strong>
+                <span class="text-success">+ 98 %</span>
+            </strong>
+            </nobr>
+</td>
+                    <td class="text-right">    40 022
+</td>
+                    <td class="text-right">    10 793 370
+</td>
+                </tr>
+                            <tr>
+                    <td>
+                        <a href="https://packagist.org/packages/doctrine/reflection/stats">
+                            reflection
+                        </a>
+                    </td>
+                    <td class="text-right">    <nobr>
+                    <strong>
+                <span class="text-success">+ 97 %</span>
+            </strong>
+            </nobr>
+</td>
+                    <td class="text-right">    38 759
+</td>
+                    <td class="text-right">    10 408 680
+</td>
+                </tr>
+                            <tr>
+                    <td>
+                        <a href="https://packagist.org/packages/doctrine/doctrine-migrations-bundle/stats">
+                            doctrine-migrations-bundle
+                        </a>
+                    </td>
+                    <td class="text-right">    <nobr>
+                    <strong>
+                <span class="text-success">+ 22 %</span>
+            </strong>
+            </nobr>
+</td>
+                    <td class="text-right">    25 059
+</td>
+                    <td class="text-right">    7 958 220
+</td>
+                </tr>
+                            <tr>
+                    <td>
+                        <a href="https://packagist.org/packages/doctrine/migrations/stats">
+                            migrations
+                        </a>
+                    </td>
+                    <td class="text-right">    <nobr>
+                    <strong>
+                <span class="text-success">+ 18 %</span>
+            </strong>
+            </nobr>
+</td>
+                    <td class="text-right">    29 673
+</td>
+                    <td class="text-right">    9 225 000
+</td>
+                </tr>
+                            <tr>
+                    <td>
+                        <a href="https://packagist.org/packages/doctrine/doctrine-fixtures-bundle/stats">
+                            doctrine-fixtures-bundle
+                        </a>
+                    </td>
+                    <td class="text-right">    <nobr>
+                    <strong>
+                <span class="text-success">+ 16 %</span>
+            </strong>
+            </nobr>
+</td>
+                    <td class="text-right">    18 310
+</td>
+                    <td class="text-right">    5 882 880
+</td>
+                </tr>
+                            <tr>
+                    <td>
+                        <a href="https://packagist.org/packages/doctrine/lexer/stats">
+                            lexer
+                        </a>
+                    </td>
+                    <td class="text-right">    <nobr>
+                    <strong>
+                <span class="text-success">+ 16 %</span>
+            </strong>
+            </nobr>
+</td>
+                    <td class="text-right">    136 866
+</td>
+                    <td class="text-right">    42 287 340
+</td>
+                </tr>
+                            <tr>
+                    <td>
+                        <a href="https://packagist.org/packages/doctrine/doctrine-bundle/stats">
+                            doctrine-bundle
+                        </a>
+                    </td>
+                    <td class="text-right">    <nobr>
+                    <strong>
+                <span class="text-success">+ 15 %</span>
+            </strong>
+            </nobr>
+</td>
+                    <td class="text-right">    38 091
+</td>
+                    <td class="text-right">    12 448 830
+</td>
+                </tr>
+                            <tr>
+                    <td>
+                        <a href="https://packagist.org/packages/doctrine/mongodb-odm-bundle/stats">
+                            mongodb-odm-bundle
+                        </a>
+                    </td>
+                    <td class="text-right">    <nobr>
+                    <strong>
+                <span class="text-success">+ 15 %</span>
+            </strong>
+            </nobr>
+</td>
+                    <td class="text-right">    2 908
+</td>
+                    <td class="text-right">    920 490
+</td>
+                </tr>
+                            <tr>
+                    <td>
+                        <a href="https://packagist.org/packages/doctrine/dbal/stats">
+                            dbal
+                        </a>
+                    </td>
+                    <td class="text-right">    <nobr>
+                    <strong>
+                <span class="text-success">+ 15 %</span>
+            </strong>
+            </nobr>
+</td>
+                    <td class="text-right">    80 031
+</td>
+                    <td class="text-right">    26 905 680
+</td>
+                </tr>
+                            <tr>
+                    <td>
+                        <a href="https://packagist.org/packages/doctrine/instantiator/stats">
+                            instantiator
+                        </a>
+                    </td>
+                    <td class="text-right">    <nobr>
+                    <strong>
+                <span class="text-success">+ 14 %</span>
+            </strong>
+            </nobr>
+</td>
+                    <td class="text-right">    142 569
+</td>
+                    <td class="text-right">    47 937 210
+</td>
+                </tr>
+                            <tr>
+                    <td>
+                        <a href="https://packagist.org/packages/doctrine/data-fixtures/stats">
+                            data-fixtures
+                        </a>
+                    </td>
+                    <td class="text-right">    <nobr>
+                    <strong>
+                <span class="text-success">+ 13 %</span>
+            </strong>
+            </nobr>
+</td>
+                    <td class="text-right">    20 700
+</td>
+                    <td class="text-right">    6 879 630
+</td>
+                </tr>
+                            <tr>
+                    <td>
+                        <a href="https://packagist.org/packages/doctrine/cache/stats">
+                            cache
+                        </a>
+                    </td>
+                    <td class="text-right">    <nobr>
+                    <strong>
+                <span class="text-success">+ 12 %</span>
+            </strong>
+            </nobr>
+</td>
+                    <td class="text-right">    93 639
+</td>
+                    <td class="text-right">    31 563 750
+</td>
+                </tr>
+                            <tr>
+                    <td>
+                        <a href="https://packagist.org/packages/doctrine/inflector/stats">
+                            inflector
+                        </a>
+                    </td>
+                    <td class="text-right">    <nobr>
+                    <strong>
+                <span class="text-success">+ 12 %</span>
+            </strong>
+            </nobr>
+</td>
+                    <td class="text-right">    128 826
+</td>
+                    <td class="text-right">    43 778 280
+</td>
+                </tr>
+                            <tr>
+                    <td>
+                        <a href="https://packagist.org/packages/doctrine/doctrine-cache-bundle/stats">
+                            doctrine-cache-bundle
+                        </a>
+                    </td>
+                    <td class="text-right">    <nobr>
+                    <strong>
+                <span class="text-success">+ 12 %</span>
+            </strong>
+            </nobr>
+</td>
+                    <td class="text-right">    36 141
+</td>
+                    <td class="text-right">    12 182 400
+</td>
+                </tr>
+                            <tr>
+                    <td>
+                        <a href="https://packagist.org/packages/doctrine/mongodb-odm/stats">
+                            mongodb-odm
+                        </a>
+                    </td>
+                    <td class="text-right">    <nobr>
+                    <strong>
+                <span class="text-success">+ 10 %</span>
+            </strong>
+            </nobr>
+</td>
+                    <td class="text-right">    3 449
+</td>
+                    <td class="text-right">    1 111 440
+</td>
+                </tr>
+                            <tr>
+                    <td>
+                        <a href="https://packagist.org/packages/doctrine/orm/stats">
+                            orm
+                        </a>
+                    </td>
+                    <td class="text-right">    <nobr>
+                    <strong>
+                <span class="text-success">+ 9 %</span>
+            </strong>
+            </nobr>
+</td>
+                    <td class="text-right">    42 307
+</td>
+                    <td class="text-right">    14 591 340
+</td>
+                </tr>
+                            <tr>
+                    <td>
+                        <a href="https://packagist.org/packages/doctrine/annotations/stats">
+                            annotations
+                        </a>
+                    </td>
+                    <td class="text-right">    <nobr>
+                    <strong>
+                <span class="text-success">+ 6 %</span>
+            </strong>
+            </nobr>
+</td>
+                    <td class="text-right">    85 586
+</td>
+                    <td class="text-right">    29 479 050
+</td>
+                </tr>
+                            <tr>
+                    <td>
+                        <a href="https://packagist.org/packages/doctrine/collections/stats">
+                            collections
+                        </a>
+                    </td>
+                    <td class="text-right">    <nobr>
+                    <strong>
+                <span class="text-success">+ 4 %</span>
+            </strong>
+            </nobr>
+</td>
+                    <td class="text-right">    74 435
+</td>
+                    <td class="text-right">    25 606 140
+</td>
+                </tr>
+                            <tr>
+                    <td>
+                        <a href="https://packagist.org/packages/doctrine/mongodb/stats">
+                            mongodb
+                        </a>
+                    </td>
+                    <td class="text-right">    <nobr>
+                    <strong>
+                <span class="text-success">+ 4 %</span>
+            </strong>
+            </nobr>
+</td>
+                    <td class="text-right">    3 400
+</td>
+                    <td class="text-right">    1 115 610
+</td>
+                </tr>
+                            <tr>
+                    <td>
+                        <a href="https://packagist.org/packages/doctrine/doctrine-module/stats">
+                            doctrine-module
+                        </a>
+                    </td>
+                    <td class="text-right">    <nobr>
+                    <span class="text-danger">- 1 %</span>
+            </nobr>
+</td>
+                    <td class="text-right">    1 630
+</td>
+                    <td class="text-right">    624 660
+</td>
+                </tr>
+                            <tr>
+                    <td>
+                        <a href="https://packagist.org/packages/doctrine/common/stats">
+                            common
+                        </a>
+                    </td>
+                    <td class="text-right">    <nobr>
+                    <span class="text-danger">- 1 %</span>
+            </nobr>
+</td>
+                    <td class="text-right">    65 030
+</td>
+                    <td class="text-right">    24 111 180
+</td>
+                </tr>
+                            <tr>
+                    <td>
+                        <a href="https://packagist.org/packages/doctrine/doctrine-orm-module/stats">
+                            doctrine-orm-module
+                        </a>
+                    </td>
+                    <td class="text-right">    <nobr>
+                    <span class="text-danger">- 2 %</span>
+            </nobr>
+</td>
+                    <td class="text-right">    1 454
+</td>
+                    <td class="text-right">    559 770
+</td>
+                </tr>
+                    </table>
+            <hr>
+
+        <div class="text-center mb-5">
+            <h2 id="laravel">
+                Laravel
+            </h2>
+
+            <p>
+                <a href="#table">Jump up ↑</a>
+            </p>
+        </div>
+
+        <table class="table table-bordered mt-4 mt-4" id="laravel">
+            <thead class="thead-inverse">
+                <tr>
+                    <th class="w-25">Package</th>
+                    <th class="text-center w-25">
+                        Trend Last Year
+                    </th>
+                    <th class="text-center w-25">
+                        Last month Daily
+                    </th>
+                    <th class="text-center w-25">
+                        Total Last Year
+                    </th>
+                </tr>
+            </thead>
+                            <tr>
+                    <td>
+                        <a href="https://packagist.org/packages/illuminate/log/stats">
+                            log
+                        </a>
+                    </td>
+                    <td class="text-right">    <nobr>
+                    <strong>
+                <span class="text-success">+ 46 %</span>
+            </strong>
+            </nobr>
+</td>
+                    <td class="text-right">    3 751
+</td>
+                    <td class="text-right">    1 094 160
+</td>
+                </tr>
+                            <tr>
+                    <td>
+                        <a href="https://packagist.org/packages/illuminate/mail/stats">
+                            mail
+                        </a>
+                    </td>
+                    <td class="text-right">    <nobr>
+                    <strong>
+                <span class="text-success">+ 20 %</span>
+            </strong>
+            </nobr>
+</td>
+                    <td class="text-right">    1 739
+</td>
+                    <td class="text-right">    538 050
+</td>
+                </tr>
+                            <tr>
+                    <td>
+                        <a href="https://packagist.org/packages/illuminate/config/stats">
+                            config
+                        </a>
+                    </td>
+                    <td class="text-right">    <nobr>
+                    <strong>
+                <span class="text-success">+ 19 %</span>
+            </strong>
+            </nobr>
+</td>
+                    <td class="text-right">    7 616
+</td>
+                    <td class="text-right">    2 526 330
+</td>
+                </tr>
+                            <tr>
+                    <td>
+                        <a href="https://packagist.org/packages/illuminate/filesystem/stats">
+                            filesystem
+                        </a>
+                    </td>
+                    <td class="text-right">    <nobr>
+                    <strong>
+                <span class="text-success">+ 19 %</span>
+            </strong>
+            </nobr>
+</td>
+                    <td class="text-right">    9 133
+</td>
+                    <td class="text-right">    3 052 830
+</td>
+                </tr>
+                            <tr>
+                    <td>
+                        <a href="https://packagist.org/packages/illuminate/redis/stats">
+                            redis
+                        </a>
+                    </td>
+                    <td class="text-right">    <nobr>
+                    <strong>
+                <span class="text-success">+ 19 %</span>
+            </strong>
+            </nobr>
+</td>
+                    <td class="text-right">    2 691
+</td>
+                    <td class="text-right">    918 510
+</td>
+                </tr>
+                            <tr>
+                    <td>
+                        <a href="https://packagist.org/packages/illuminate/console/stats">
+                            console
+                        </a>
+                    </td>
+                    <td class="text-right">    <nobr>
+                    <strong>
+                <span class="text-success">+ 17 %</span>
+            </strong>
+            </nobr>
+</td>
+                    <td class="text-right">    6 797
+</td>
+                    <td class="text-right">    2 290 980
+</td>
+                </tr>
+                            <tr>
+                    <td>
+                        <a href="https://packagist.org/packages/illuminate/events/stats">
+                            events
+                        </a>
+                    </td>
+                    <td class="text-right">    <nobr>
+                    <strong>
+                <span class="text-success">+ 17 %</span>
+            </strong>
+            </nobr>
+</td>
+                    <td class="text-right">    9 066
+</td>
+                    <td class="text-right">    3 003 510
+</td>
+                </tr>
+                            <tr>
+                    <td>
+                        <a href="https://packagist.org/packages/illuminate/view/stats">
+                            view
+                        </a>
+                    </td>
+                    <td class="text-right">    <nobr>
+                    <strong>
+                <span class="text-success">+ 16 %</span>
+            </strong>
+            </nobr>
+</td>
+                    <td class="text-right">    7 121
+</td>
+                    <td class="text-right">    2 423 640
+</td>
+                </tr>
+                            <tr>
+                    <td>
+                        <a href="https://packagist.org/packages/illuminate/support/stats">
+                            support
+                        </a>
+                    </td>
+                    <td class="text-right">    <nobr>
+                    <strong>
+                <span class="text-success">+ 16 %</span>
+            </strong>
+            </nobr>
+</td>
+                    <td class="text-right">    17 595
+</td>
+                    <td class="text-right">    5 722 050
+</td>
+                </tr>
+                            <tr>
+                    <td>
+                        <a href="https://packagist.org/packages/illuminate/queue/stats">
+                            queue
+                        </a>
+                    </td>
+                    <td class="text-right">    <nobr>
+                    <strong>
+                <span class="text-success">+ 15 %</span>
+            </strong>
+            </nobr>
+</td>
+                    <td class="text-right">    5 758
+</td>
+                    <td class="text-right">    1 947 600
+</td>
+                </tr>
+                            <tr>
+                    <td>
+                        <a href="https://packagist.org/packages/illuminate/contracts/stats">
+                            contracts
+                        </a>
+                    </td>
+                    <td class="text-right">    <nobr>
+                    <strong>
+                <span class="text-success">+ 15 %</span>
+            </strong>
+            </nobr>
+</td>
+                    <td class="text-right">    17 413
+</td>
+                    <td class="text-right">    5 633 700
+</td>
+                </tr>
+                            <tr>
+                    <td>
+                        <a href="https://packagist.org/packages/illuminate/translation/stats">
+                            translation
+                        </a>
+                    </td>
+                    <td class="text-right">    <nobr>
+                    <strong>
+                <span class="text-success">+ 15 %</span>
+            </strong>
+            </nobr>
+</td>
+                    <td class="text-right">    5 789
+</td>
+                    <td class="text-right">    1 995 630
+</td>
+                </tr>
+                            <tr>
+                    <td>
+                        <a href="https://packagist.org/packages/illuminate/cache/stats">
+                            cache
+                        </a>
+                    </td>
+                    <td class="text-right">    <nobr>
+                    <strong>
+                <span class="text-success">+ 15 %</span>
+            </strong>
+            </nobr>
+</td>
+                    <td class="text-right">    5 918
+</td>
+                    <td class="text-right">    2 052 000
+</td>
+                </tr>
+                            <tr>
+                    <td>
+                        <a href="https://packagist.org/packages/illuminate/routing/stats">
+                            routing
+                        </a>
+                    </td>
+                    <td class="text-right">    <nobr>
+                    <strong>
+                <span class="text-success">+ 15 %</span>
+            </strong>
+            </nobr>
+</td>
+                    <td class="text-right">    1 389
+</td>
+                    <td class="text-right">    476 760
+</td>
+                </tr>
+                            <tr>
+                    <td>
+                        <a href="https://packagist.org/packages/illuminate/session/stats">
+                            session
+                        </a>
+                    </td>
+                    <td class="text-right">    <nobr>
+                    <strong>
+                <span class="text-success">+ 14 %</span>
+            </strong>
+            </nobr>
+</td>
+                    <td class="text-right">    5 959
+</td>
+                    <td class="text-right">    2 079 360
+</td>
+                </tr>
+                            <tr>
+                    <td>
+                        <a href="https://packagist.org/packages/illuminate/bus/stats">
+                            bus
+                        </a>
+                    </td>
+                    <td class="text-right">    <nobr>
+                    <strong>
+                <span class="text-success">+ 14 %</span>
+            </strong>
+            </nobr>
+</td>
+                    <td class="text-right">    5 472
+</td>
+                    <td class="text-right">    1 892 670
+</td>
+                </tr>
+                            <tr>
+                    <td>
+                        <a href="https://packagist.org/packages/illuminate/container/stats">
+                            container
+                        </a>
+                    </td>
+                    <td class="text-right">    <nobr>
+                    <strong>
+                <span class="text-success">+ 14 %</span>
+            </strong>
+            </nobr>
+</td>
+                    <td class="text-right">    13 475
+</td>
+                    <td class="text-right">    4 508 910
+</td>
+                </tr>
+                            <tr>
+                    <td>
+                        <a href="https://packagist.org/packages/illuminate/pipeline/stats">
+                            pipeline
+                        </a>
+                    </td>
+                    <td class="text-right">    <nobr>
+                    <strong>
+                <span class="text-success">+ 13 %</span>
+            </strong>
+            </nobr>
+</td>
+                    <td class="text-right">    5 847
+</td>
+                    <td class="text-right">    2 022 300
+</td>
+                </tr>
+                            <tr>
+                    <td>
+                        <a href="https://packagist.org/packages/illuminate/hashing/stats">
+                            hashing
+                        </a>
+                    </td>
+                    <td class="text-right">    <nobr>
+                    <strong>
+                <span class="text-success">+ 13 %</span>
+            </strong>
+            </nobr>
+</td>
+                    <td class="text-right">    5 178
+</td>
+                    <td class="text-right">    1 825 410
+</td>
+                </tr>
+                            <tr>
+                    <td>
+                        <a href="https://packagist.org/packages/illuminate/encryption/stats">
+                            encryption
+                        </a>
+                    </td>
+                    <td class="text-right">    <nobr>
+                    <strong>
+                <span class="text-success">+ 13 %</span>
+            </strong>
+            </nobr>
+</td>
+                    <td class="text-right">    5 675
+</td>
+                    <td class="text-right">    1 972 680
+</td>
+                </tr>
+                            <tr>
+                    <td>
+                        <a href="https://packagist.org/packages/illuminate/validation/stats">
+                            validation
+                        </a>
+                    </td>
+                    <td class="text-right">    <nobr>
+                    <strong>
+                <span class="text-success">+ 13 %</span>
+            </strong>
+            </nobr>
+</td>
+                    <td class="text-right">    5 820
+</td>
+                    <td class="text-right">    2 017 800
+</td>
+                </tr>
+                            <tr>
+                    <td>
+                        <a href="https://packagist.org/packages/illuminate/http/stats">
+                            http
+                        </a>
+                    </td>
+                    <td class="text-right">    <nobr>
+                    <strong>
+                <span class="text-success">+ 13 %</span>
+            </strong>
+            </nobr>
+</td>
+                    <td class="text-right">    5 844
+</td>
+                    <td class="text-right">    2 040 480
+</td>
+                </tr>
+                            <tr>
+                    <td>
+                        <a href="https://packagist.org/packages/illuminate/pagination/stats">
+                            pagination
+                        </a>
+                    </td>
+                    <td class="text-right">    <nobr>
+                    <strong>
+                <span class="text-success">+ 13 %</span>
+            </strong>
+            </nobr>
+</td>
+                    <td class="text-right">    5 976
+</td>
+                    <td class="text-right">    2 059 770
+</td>
+                </tr>
+                            <tr>
+                    <td>
+                        <a href="https://packagist.org/packages/laravel/framework/stats">
+                            framework
+                        </a>
+                    </td>
+                    <td class="text-right">    <nobr>
+                    <strong>
+                <span class="text-success">+ 12 %</span>
+            </strong>
+            </nobr>
+</td>
+                    <td class="text-right">    66 796
+</td>
+                    <td class="text-right">    22 635 300
+</td>
+                </tr>
+                            <tr>
+                    <td>
+                        <a href="https://packagist.org/packages/illuminate/broadcasting/stats">
+                            broadcasting
+                        </a>
+                    </td>
+                    <td class="text-right">    <nobr>
+                    <strong>
+                <span class="text-success">+ 12 %</span>
+            </strong>
+            </nobr>
+</td>
+                    <td class="text-right">    5 023
+</td>
+                    <td class="text-right">    1 762 470
+</td>
+                </tr>
+                            <tr>
+                    <td>
+                        <a href="https://packagist.org/packages/illuminate/auth/stats">
+                            auth
+                        </a>
+                    </td>
+                    <td class="text-right">    <nobr>
+                    <strong>
+                <span class="text-success">+ 12 %</span>
+            </strong>
+            </nobr>
+</td>
+                    <td class="text-right">    5 167
+</td>
+                    <td class="text-right">    1 802 310
+</td>
+                </tr>
+                            <tr>
+                    <td>
+                        <a href="https://packagist.org/packages/illuminate/database/stats">
+                            database
+                        </a>
+                    </td>
+                    <td class="text-right">    <nobr>
+                    <strong>
+                <span class="text-success">+ 9 %</span>
+            </strong>
+            </nobr>
+</td>
+                    <td class="text-right">    9 818
+</td>
+                    <td class="text-right">    3 337 110
+</td>
+                </tr>
+                    </table>
+            <hr>
+
+        <div class="text-center mb-5">
+            <h2 id="slim">
+                Slim
+            </h2>
+
+            <p>
+                <a href="#table">Jump up ↑</a>
+            </p>
+        </div>
+
+        <table class="table table-bordered mt-4 mt-4" id="slim">
+            <thead class="thead-inverse">
+                <tr>
+                    <th class="w-25">Package</th>
+                    <th class="text-center w-25">
+                        Trend Last Year
+                    </th>
+                    <th class="text-center w-25">
+                        Last month Daily
+                    </th>
+                    <th class="text-center w-25">
+                        Total Last Year
+                    </th>
+                </tr>
+            </thead>
+                            <tr>
+                    <td>
+                        <a href="https://packagist.org/packages/slim/php-view/stats">
+                            php-view
+                        </a>
+                    </td>
+                    <td class="text-right">    <nobr>
+                    <strong>
+                <span class="text-success">+ 24 %</span>
+            </strong>
+            </nobr>
+</td>
+                    <td class="text-right">    1 772
+</td>
+                    <td class="text-right">    616 440
+</td>
+                </tr>
+                            <tr>
+                    <td>
+                        <a href="https://packagist.org/packages/slim/slim/stats">
+                            slim
+                        </a>
+                    </td>
+                    <td class="text-right">    <nobr>
+                    <strong>
+                <span class="text-success">+ 14 %</span>
+            </strong>
+            </nobr>
+</td>
+                    <td class="text-right">    7 871
+</td>
+                    <td class="text-right">    2 962 770
+</td>
+                </tr>
+                            <tr>
+                    <td>
+                        <a href="https://packagist.org/packages/slim/twig-view/stats">
+                            twig-view
+                        </a>
+                    </td>
+                    <td class="text-right">    <nobr>
+                    <strong>
+                <span class="text-success">+ 9 %</span>
+            </strong>
+            </nobr>
+</td>
+                    <td class="text-right">    1 264
+</td>
+                    <td class="text-right">    440 280
+</td>
+                </tr>
+                    </table>
+            <hr>
+
+        <div class="text-center mb-5">
+            <h2 id="zend">
+                Zend
+            </h2>
+
+            <p>
+                <a href="#table">Jump up ↑</a>
+            </p>
+        </div>
+
+        <table class="table table-bordered mt-4 mt-4" id="zend">
+            <thead class="thead-inverse">
+                <tr>
+                    <th class="w-25">Package</th>
+                    <th class="text-center w-25">
+                        Trend Last Year
+                    </th>
+                    <th class="text-center w-25">
+                        Last month Daily
+                    </th>
+                    <th class="text-center w-25">
+                        Total Last Year
+                    </th>
+                </tr>
+            </thead>
+                            <tr>
+                    <td>
+                        <a href="https://packagist.org/packages/zendframework/zend-httphandlerrunner/stats">
+                            zend-httphandlerrunner
+                        </a>
+                    </td>
+                    <td class="text-right">    <nobr>
+                    <strong>
+                <span class="text-success">+ 123 %</span>
+            </strong>
+            </nobr>
+</td>
+                    <td class="text-right">    1 307
+</td>
+                    <td class="text-right">    323 700
+</td>
+                </tr>
+                            <tr>
+                    <td>
+                        <a href="https://packagist.org/packages/zendframework/zend-diactoros/stats">
+                            zend-diactoros
+                        </a>
+                    </td>
+                    <td class="text-right">    <nobr>
+                    <strong>
+                <span class="text-success">+ 58 %</span>
+            </strong>
+            </nobr>
+</td>
+                    <td class="text-right">    47 903
+</td>
+                    <td class="text-right">    15 400 950
+</td>
+                </tr>
+                            <tr>
+                    <td>
+                        <a href="https://packagist.org/packages/zendframework/zend-mail/stats">
+                            zend-mail
+                        </a>
+                    </td>
+                    <td class="text-right">    <nobr>
+                    <strong>
+                <span class="text-success">+ 46 %</span>
+            </strong>
+            </nobr>
+</td>
+                    <td class="text-right">    7 641
+</td>
+                    <td class="text-right">    2 190 000
+</td>
+                </tr>
+                            <tr>
+                    <td>
+                        <a href="https://packagist.org/packages/zendframework/zend-mime/stats">
+                            zend-mime
+                        </a>
+                    </td>
+                    <td class="text-right">    <nobr>
+                    <strong>
+                <span class="text-success">+ 44 %</span>
+            </strong>
+            </nobr>
+</td>
+                    <td class="text-right">    7 994
+</td>
+                    <td class="text-right">    2 315 220
+</td>
+                </tr>
+                            <tr>
+                    <td>
+                        <a href="https://packagist.org/packages/zendframework/zend-feed/stats">
+                            zend-feed
+                        </a>
+                    </td>
+                    <td class="text-right">    <nobr>
+                    <strong>
+                <span class="text-success">+ 34 %</span>
+            </strong>
+            </nobr>
+</td>
+                    <td class="text-right">    12 644
+</td>
+                    <td class="text-right">    4 142 550
+</td>
+                </tr>
+                            <tr>
+                    <td>
+                        <a href="https://packagist.org/packages/zendframework/zend-ldap/stats">
+                            zend-ldap
+                        </a>
+                    </td>
+                    <td class="text-right">    <nobr>
+                    <strong>
+                <span class="text-success">+ 33 %</span>
+            </strong>
+            </nobr>
+</td>
+                    <td class="text-right">    1 981
+</td>
+                    <td class="text-right">    776 430
+</td>
+                </tr>
+                            <tr>
+                    <td>
+                        <a href="https://packagist.org/packages/zendframework/zend-barcode/stats">
+                            zend-barcode
+                        </a>
+                    </td>
+                    <td class="text-right">    <nobr>
+                    <strong>
+                <span class="text-success">+ 25 %</span>
+            </strong>
+            </nobr>
+</td>
+                    <td class="text-right">    3 552
+</td>
+                    <td class="text-right">    804 090
+</td>
+                </tr>
+                            <tr>
+                    <td>
+                        <a href="https://packagist.org/packages/zendframework/zenddiagnostics/stats">
+                            zenddiagnostics
+                        </a>
+                    </td>
+                    <td class="text-right">    <nobr>
+                    <strong>
+                <span class="text-success">+ 21 %</span>
+            </strong>
+            </nobr>
+</td>
+                    <td class="text-right">    4 895
+</td>
+                    <td class="text-right">    1 806 000
+</td>
+                </tr>
+                            <tr>
+                    <td>
+                        <a href="https://packagist.org/packages/zendframework/zend-code/stats">
+                            zend-code
+                        </a>
+                    </td>
+                    <td class="text-right">    <nobr>
+                    <strong>
+                <span class="text-success">+ 20 %</span>
+            </strong>
+            </nobr>
+</td>
+                    <td class="text-right">    42 788
+</td>
+                    <td class="text-right">    13 822 950
+</td>
+                </tr>
+                            <tr>
+                    <td>
+                        <a href="https://packagist.org/packages/zendframework/zend-inputfilter/stats">
+                            zend-inputfilter
+                        </a>
+                    </td>
+                    <td class="text-right">    <nobr>
+                    <strong>
+                <span class="text-success">+ 19 %</span>
+            </strong>
+            </nobr>
+</td>
+                    <td class="text-right">    8 498
+</td>
+                    <td class="text-right">    2 877 600
+</td>
+                </tr>
+                            <tr>
+                    <td>
+                        <a href="https://packagist.org/packages/zendframework/zend-eventmanager/stats">
+                            zend-eventmanager
+                        </a>
+                    </td>
+                    <td class="text-right">    <nobr>
+                    <strong>
+                <span class="text-success">+ 18 %</span>
+            </strong>
+            </nobr>
+</td>
+                    <td class="text-right">    44 273
+</td>
+                    <td class="text-right">    14 385 750
+</td>
+                </tr>
+                            <tr>
+                    <td>
+                        <a href="https://packagist.org/packages/zendframework/zend-expressive-router/stats">
+                            zend-expressive-router
+                        </a>
+                    </td>
+                    <td class="text-right">    <nobr>
+                    <strong>
+                <span class="text-success">+ 18 %</span>
+            </strong>
+            </nobr>
+</td>
+                    <td class="text-right">    1 077
+</td>
+                    <td class="text-right">    343 440
+</td>
+                </tr>
+                            <tr>
+                    <td>
+                        <a href="https://packagist.org/packages/zendframework/zend-expressive-template/stats">
+                            zend-expressive-template
+                        </a>
+                    </td>
+                    <td class="text-right">    <nobr>
+                    <strong>
+                <span class="text-success">+ 18 %</span>
+            </strong>
+            </nobr>
+</td>
+                    <td class="text-right">    1 051
+</td>
+                    <td class="text-right">    330 150
+</td>
+                </tr>
+                            <tr>
+                    <td>
+                        <a href="https://packagist.org/packages/zendframework/zend-validator/stats">
+                            zend-validator
+                        </a>
+                    </td>
+                    <td class="text-right">    <nobr>
+                    <strong>
+                <span class="text-success">+ 17 %</span>
+            </strong>
+            </nobr>
+</td>
+                    <td class="text-right">    16 719
+</td>
+                    <td class="text-right">    5 838 000
+</td>
+                </tr>
+                            <tr>
+                    <td>
+                        <a href="https://packagist.org/packages/zendframework/zend-escaper/stats">
+                            zend-escaper
+                        </a>
+                    </td>
+                    <td class="text-right">    <nobr>
+                    <strong>
+                <span class="text-success">+ 17 %</span>
+            </strong>
+            </nobr>
+</td>
+                    <td class="text-right">    23 935
+</td>
+                    <td class="text-right">    8 235 630
+</td>
+                </tr>
+                            <tr>
+                    <td>
+                        <a href="https://packagist.org/packages/zendframework/zend-view/stats">
+                            zend-view
+                        </a>
+                    </td>
+                    <td class="text-right">    <nobr>
+                    <strong>
+                <span class="text-success">+ 16 %</span>
+            </strong>
+            </nobr>
+</td>
+                    <td class="text-right">    7 590
+</td>
+                    <td class="text-right">    2 709 930
+</td>
+                </tr>
+                            <tr>
+                    <td>
+                        <a href="https://packagist.org/packages/zendframework/zend-psr7bridge/stats">
+                            zend-psr7bridge
+                        </a>
+                    </td>
+                    <td class="text-right">    <nobr>
+                    <strong>
+                <span class="text-success">+ 16 %</span>
+            </strong>
+            </nobr>
+</td>
+                    <td class="text-right">    5 455
+</td>
+                    <td class="text-right">    1 847 790
+</td>
+                </tr>
+                            <tr>
+                    <td>
+                        <a href="https://packagist.org/packages/zendframework/zend-db/stats">
+                            zend-db
+                        </a>
+                    </td>
+                    <td class="text-right">    <nobr>
+                    <strong>
+                <span class="text-success">+ 15 %</span>
+            </strong>
+            </nobr>
+</td>
+                    <td class="text-right">    6 878
+</td>
+                    <td class="text-right">    2 335 110
+</td>
+                </tr>
+                            <tr>
+                    <td>
+                        <a href="https://packagist.org/packages/zendframework/zend-filter/stats">
+                            zend-filter
+                        </a>
+                    </td>
+                    <td class="text-right">    <nobr>
+                    <strong>
+                <span class="text-success">+ 15 %</span>
+            </strong>
+            </nobr>
+</td>
+                    <td class="text-right">    10 330
+</td>
+                    <td class="text-right">    3 576 720
+</td>
+                </tr>
+                            <tr>
+                    <td>
+                        <a href="https://packagist.org/packages/zendframework/zend-stratigility/stats">
+                            zend-stratigility
+                        </a>
+                    </td>
+                    <td class="text-right">    <nobr>
+                    <strong>
+                <span class="text-success">+ 14 %</span>
+            </strong>
+            </nobr>
+</td>
+                    <td class="text-right">    1 725
+</td>
+                    <td class="text-right">    573 570
+</td>
+                </tr>
+                            <tr>
+                    <td>
+                        <a href="https://packagist.org/packages/zendframework/zend-router/stats">
+                            zend-router
+                        </a>
+                    </td>
+                    <td class="text-right">    <nobr>
+                    <strong>
+                <span class="text-success">+ 13 %</span>
+            </strong>
+            </nobr>
+</td>
+                    <td class="text-right">    1 999
+</td>
+                    <td class="text-right">    691 560
+</td>
+                </tr>
+                            <tr>
+                    <td>
+                        <a href="https://packagist.org/packages/zendframework/zend-component-installer/stats">
+                            zend-component-installer
+                        </a>
+                    </td>
+                    <td class="text-right">    <nobr>
+                    <strong>
+                <span class="text-success">+ 13 %</span>
+            </strong>
+            </nobr>
+</td>
+                    <td class="text-right">    1 441
+</td>
+                    <td class="text-right">    492 720
+</td>
+                </tr>
+                            <tr>
+                    <td>
+                        <a href="https://packagist.org/packages/zendframework/zend-session/stats">
+                            zend-session
+                        </a>
+                    </td>
+                    <td class="text-right">    <nobr>
+                    <strong>
+                <span class="text-success">+ 12 %</span>
+            </strong>
+            </nobr>
+</td>
+                    <td class="text-right">    6 478
+</td>
+                    <td class="text-right">    2 226 930
+</td>
+                </tr>
+                            <tr>
+                    <td>
+                        <a href="https://packagist.org/packages/zendframework/zend-form/stats">
+                            zend-form
+                        </a>
+                    </td>
+                    <td class="text-right">    <nobr>
+                    <strong>
+                <span class="text-success">+ 12 %</span>
+            </strong>
+            </nobr>
+</td>
+                    <td class="text-right">    7 141
+</td>
+                    <td class="text-right">    2 571 750
+</td>
+                </tr>
+                            <tr>
+                    <td>
+                        <a href="https://packagist.org/packages/zendframework/zend-stdlib/stats">
+                            zend-stdlib
+                        </a>
+                    </td>
+                    <td class="text-right">    <nobr>
+                    <strong>
+                <span class="text-success">+ 11 %</span>
+            </strong>
+            </nobr>
+</td>
+                    <td class="text-right">    30 867
+</td>
+                    <td class="text-right">    10 907 370
+</td>
+                </tr>
+                            <tr>
+                    <td>
+                        <a href="https://packagist.org/packages/zendframework/zend-captcha/stats">
+                            zend-captcha
+                        </a>
+                    </td>
+                    <td class="text-right">    <nobr>
+                    <strong>
+                <span class="text-success">+ 11 %</span>
+            </strong>
+            </nobr>
+</td>
+                    <td class="text-right">    5 425
+</td>
+                    <td class="text-right">    1 878 180
+</td>
+                </tr>
+                            <tr>
+                    <td>
+                        <a href="https://packagist.org/packages/zendframework/zend-uri/stats">
+                            zend-uri
+                        </a>
+                    </td>
+                    <td class="text-right">    <nobr>
+                    <strong>
+                <span class="text-success">+ 10 %</span>
+            </strong>
+            </nobr>
+</td>
+                    <td class="text-right">    11 973
+</td>
+                    <td class="text-right">    4 205 010
+</td>
+                </tr>
+                            <tr>
+                    <td>
+                        <a href="https://packagist.org/packages/zendframework/zend-hydrator/stats">
+                            zend-hydrator
+                        </a>
+                    </td>
+                    <td class="text-right">    <nobr>
+                    <strong>
+                <span class="text-success">+ 10 %</span>
+            </strong>
+            </nobr>
+</td>
+                    <td class="text-right">    9 321
+</td>
+                    <td class="text-right">    3 285 330
+</td>
+                </tr>
+                            <tr>
+                    <td>
+                        <a href="https://packagist.org/packages/zendframework/zend-loader/stats">
+                            zend-loader
+                        </a>
+                    </td>
+                    <td class="text-right">    <nobr>
+                    <strong>
+                <span class="text-success">+ 9 %</span>
+            </strong>
+            </nobr>
+</td>
+                    <td class="text-right">    13 192
+</td>
+                    <td class="text-right">    4 728 750
+</td>
+                </tr>
+                            <tr>
+                    <td>
+                        <a href="https://packagist.org/packages/zendframework/zend-http/stats">
+                            zend-http
+                        </a>
+                    </td>
+                    <td class="text-right">    <nobr>
+                    <strong>
+                <span class="text-success">+ 9 %</span>
+            </strong>
+            </nobr>
+</td>
+                    <td class="text-right">    10 962
+</td>
+                    <td class="text-right">    3 996 870
+</td>
+                </tr>
+                            <tr>
+                    <td>
+                        <a href="https://packagist.org/packages/zendframework/zendservice-apple-apns/stats">
+                            zendservice-apple-apns
+                        </a>
+                    </td>
+                    <td class="text-right">    <nobr>
+                    <strong>
+                <span class="text-success">+ 9 %</span>
+            </strong>
+            </nobr>
+</td>
+                    <td class="text-right">    1 682
+</td>
+                    <td class="text-right">    579 390
+</td>
+                </tr>
+                            <tr>
+                    <td>
+                        <a href="https://packagist.org/packages/zendframework/zend-soap/stats">
+                            zend-soap
+                        </a>
+                    </td>
+                    <td class="text-right">    <nobr>
+                    <strong>
+                <span class="text-success">+ 9 %</span>
+            </strong>
+            </nobr>
+</td>
+                    <td class="text-right">    7 209
+</td>
+                    <td class="text-right">    2 401 440
+</td>
+                </tr>
+                            <tr>
+                    <td>
+                        <a href="https://packagist.org/packages/zendframework/zend-json/stats">
+                            zend-json
+                        </a>
+                    </td>
+                    <td class="text-right">    <nobr>
+                    <strong>
+                <span class="text-success">+ 8 %</span>
+            </strong>
+            </nobr>
+</td>
+                    <td class="text-right">    10 874
+</td>
+                    <td class="text-right">    3 790 260
+</td>
+                </tr>
+                            <tr>
+                    <td>
+                        <a href="https://packagist.org/packages/zendframework/zend-console/stats">
+                            zend-console
+                        </a>
+                    </td>
+                    <td class="text-right">    <nobr>
+                    <strong>
+                <span class="text-success">+ 8 %</span>
+            </strong>
+            </nobr>
+</td>
+                    <td class="text-right">    6 864
+</td>
+                    <td class="text-right">    2 439 180
+</td>
+                </tr>
+                            <tr>
+                    <td>
+                        <a href="https://packagist.org/packages/zendframework/zend-modulemanager/stats">
+                            zend-modulemanager
+                        </a>
+                    </td>
+                    <td class="text-right">    <nobr>
+                    <strong>
+                <span class="text-success">+ 8 %</span>
+            </strong>
+            </nobr>
+</td>
+                    <td class="text-right">    7 096
+</td>
+                    <td class="text-right">    2 504 850
+</td>
+                </tr>
+                            <tr>
+                    <td>
+                        <a href="https://packagist.org/packages/zendframework/zend-log/stats">
+                            zend-log
+                        </a>
+                    </td>
+                    <td class="text-right">    <nobr>
+                    <strong>
+                <span class="text-success">+ 8 %</span>
+            </strong>
+            </nobr>
+</td>
+                    <td class="text-right">    7 084
+</td>
+                    <td class="text-right">    2 498 580
+</td>
+                </tr>
+                            <tr>
+                    <td>
+                        <a href="https://packagist.org/packages/zendframework/zend-di/stats">
+                            zend-di
+                        </a>
+                    </td>
+                    <td class="text-right">    <nobr>
+                    <strong>
+                <span class="text-success">+ 7 %</span>
+            </strong>
+            </nobr>
+</td>
+                    <td class="text-right">    5 828
+</td>
+                    <td class="text-right">    2 083 170
+</td>
+                </tr>
+                            <tr>
+                    <td>
+                        <a href="https://packagist.org/packages/zendframework/zend-config/stats">
+                            zend-config
+                        </a>
+                    </td>
+                    <td class="text-right">    <nobr>
+                    <strong>
+                <span class="text-success">+ 7 %</span>
+            </strong>
+            </nobr>
+</td>
+                    <td class="text-right">    9 034
+</td>
+                    <td class="text-right">    3 194 460
+</td>
+                </tr>
+                            <tr>
+                    <td>
+                        <a href="https://packagist.org/packages/zendframework/zend-mvc/stats">
+                            zend-mvc
+                        </a>
+                    </td>
+                    <td class="text-right">    <nobr>
+                    <strong>
+                <span class="text-success">+ 6 %</span>
+            </strong>
+            </nobr>
+</td>
+                    <td class="text-right">    7 221
+</td>
+                    <td class="text-right">    2 565 330
+</td>
+                </tr>
+                            <tr>
+                    <td>
+                        <a href="https://packagist.org/packages/zendframework/zend-server/stats">
+                            zend-server
+                        </a>
+                    </td>
+                    <td class="text-right">    <nobr>
+                    <strong>
+                <span class="text-success">+ 5 %</span>
+            </strong>
+            </nobr>
+</td>
+                    <td class="text-right">    7 277
+</td>
+                    <td class="text-right">    2 585 370
+</td>
+                </tr>
+                            <tr>
+                    <td>
+                        <a href="https://packagist.org/packages/zendframework/zend-text/stats">
+                            zend-text
+                        </a>
+                    </td>
+                    <td class="text-right">    <nobr>
+                    <strong>
+                <span class="text-success">+ 5 %</span>
+            </strong>
+            </nobr>
+</td>
+                    <td class="text-right">    6 264
+</td>
+                    <td class="text-right">    2 251 260
+</td>
+                </tr>
+                            <tr>
+                    <td>
+                        <a href="https://packagist.org/packages/zendframework/zend-authentication/stats">
+                            zend-authentication
+                        </a>
+                    </td>
+                    <td class="text-right">    <nobr>
+                    <strong>
+                <span class="text-success">+ 4 %</span>
+            </strong>
+            </nobr>
+</td>
+                    <td class="text-right">    2 897
+</td>
+                    <td class="text-right">    1 030 740
+</td>
+                </tr>
+                            <tr>
+                    <td>
+                        <a href="https://packagist.org/packages/zendframework/zendservice-google-gcm/stats">
+                            zendservice-google-gcm
+                        </a>
+                    </td>
+                    <td class="text-right">    <nobr>
+                    <strong>
+                <span class="text-success">+ 4 %</span>
+            </strong>
+            </nobr>
+</td>
+                    <td class="text-right">    1 528
+</td>
+                    <td class="text-right">    532 290
+</td>
+                </tr>
+                            <tr>
+                    <td>
+                        <a href="https://packagist.org/packages/zendframework/zend-paginator/stats">
+                            zend-paginator
+                        </a>
+                    </td>
+                    <td class="text-right">    <nobr>
+                    <strong>
+                <span class="text-success">+ 3 %</span>
+            </strong>
+            </nobr>
+</td>
+                    <td class="text-right">    2 672
+</td>
+                    <td class="text-right">    982 230
+</td>
+                </tr>
+                            <tr>
+                    <td>
+                        <a href="https://packagist.org/packages/zendframework/zend-i18n/stats">
+                            zend-i18n
+                        </a>
+                    </td>
+                    <td class="text-right">    <nobr>
+                    <strong>
+                <span class="text-success">+ 3 %</span>
+            </strong>
+            </nobr>
+</td>
+                    <td class="text-right">    7 857
+</td>
+                    <td class="text-right">    2 891 160
+</td>
+                </tr>
+                            <tr>
+                    <td>
+                        <a href="https://packagist.org/packages/zendframework/zend-version/stats">
+                            zend-version
+                        </a>
+                    </td>
+                    <td class="text-right">    <nobr>
+                    <strong>
+                <span class="text-success">+ 3 %</span>
+            </strong>
+            </nobr>
+</td>
+                    <td class="text-right">    1 264
+</td>
+                    <td class="text-right">    490 620
+</td>
+                </tr>
+                            <tr>
+                    <td>
+                        <a href="https://packagist.org/packages/zendframework/zend-serializer/stats">
+                            zend-serializer
+                        </a>
+                    </td>
+                    <td class="text-right">    <nobr>
+                    <strong>
+                <span class="text-success">+ 2 %</span>
+            </strong>
+            </nobr>
+</td>
+                    <td class="text-right">    7 195
+</td>
+                    <td class="text-right">    2 634 000
+</td>
+                </tr>
+                            <tr>
+                    <td>
+                        <a href="https://packagist.org/packages/zendframework/zend-permissions-acl/stats">
+                            zend-permissions-acl
+                        </a>
+                    </td>
+                    <td class="text-right">    <nobr>
+                    <strong>
+                <span class="text-success">+ 2 %</span>
+            </strong>
+            </nobr>
+</td>
+                    <td class="text-right">    2 429
+</td>
+                    <td class="text-right">    838 110
+</td>
+                </tr>
+                            <tr>
+                    <td>
+                        <a href="https://packagist.org/packages/zendframework/zend-servicemanager/stats">
+                            zend-servicemanager
+                        </a>
+                    </td>
+                    <td class="text-right">    <nobr>
+                    <strong>
+                <span class="text-success">+ 0 %</span>
+            </strong>
+            </nobr>
+</td>
+                    <td class="text-right">    12 828
+</td>
+                    <td class="text-right">    4 565 730
+</td>
+                </tr>
+                            <tr>
+                    <td>
+                        <a href="https://packagist.org/packages/zendframework/zend-math/stats">
+                            zend-math
+                        </a>
+                    </td>
+                    <td class="text-right">    <nobr>
+                    <span class="text-danger">- 0 %</span>
+            </nobr>
+</td>
+                    <td class="text-right">    8 152
+</td>
+                    <td class="text-right">    3 128 190
+</td>
+                </tr>
+                            <tr>
+                    <td>
+                        <a href="https://packagist.org/packages/zendframework/zend-test/stats">
+                            zend-test
+                        </a>
+                    </td>
+                    <td class="text-right">    <nobr>
+                    <span class="text-danger">- 1 %</span>
+            </nobr>
+</td>
+                    <td class="text-right">    1 729
+</td>
+                    <td class="text-right">    630 090
+</td>
+                </tr>
+                            <tr>
+                    <td>
+                        <a href="https://packagist.org/packages/zendframework/zend-tag/stats">
+                            zend-tag
+                        </a>
+                    </td>
+                    <td class="text-right">    <nobr>
+                    <span class="text-danger">- 1 %</span>
+            </nobr>
+</td>
+                    <td class="text-right">    1 269
+</td>
+                    <td class="text-right">    483 150
+</td>
+                </tr>
+                            <tr>
+                    <td>
+                        <a href="https://packagist.org/packages/zendframework/zend-debug/stats">
+                            zend-debug
+                        </a>
+                    </td>
+                    <td class="text-right">    <nobr>
+                    <span class="text-danger">- 1 %</span>
+            </nobr>
+</td>
+                    <td class="text-right">    1 728
+</td>
+                    <td class="text-right">    663 420
+</td>
+                </tr>
+                            <tr>
+                    <td>
+                        <a href="https://packagist.org/packages/zendframework/zend-cache/stats">
+                            zend-cache
+                        </a>
+                    </td>
+                    <td class="text-right">    <nobr>
+                    <span class="text-danger">- 1 %</span>
+            </nobr>
+</td>
+                    <td class="text-right">    4 029
+</td>
+                    <td class="text-right">    1 527 030
+</td>
+                </tr>
+                            <tr>
+                    <td>
+                        <a href="https://packagist.org/packages/zendframework/zendframework1/stats">
+                            zendframework1
+                        </a>
+                    </td>
+                    <td class="text-right">    <nobr>
+                    <span class="text-danger">- 1 %</span>
+            </nobr>
+</td>
+                    <td class="text-right">    2 265
+</td>
+                    <td class="text-right">    861 120
+</td>
+                </tr>
+                            <tr>
+                    <td>
+                        <a href="https://packagist.org/packages/zendframework/zend-dom/stats">
+                            zend-dom
+                        </a>
+                    </td>
+                    <td class="text-right">    <nobr>
+                    <span class="text-danger">- 2 %</span>
+            </nobr>
+</td>
+                    <td class="text-right">    1 963
+</td>
+                    <td class="text-right">    686 070
+</td>
+                </tr>
+                            <tr>
+                    <td>
+                        <a href="https://packagist.org/packages/zendframework/zend-permissions-rbac/stats">
+                            zend-permissions-rbac
+                        </a>
+                    </td>
+                    <td class="text-right">    <nobr>
+                    <span class="text-danger">- 2 %</span>
+            </nobr>
+</td>
+                    <td class="text-right">    1 736
+</td>
+                    <td class="text-right">    648 840
+</td>
+                </tr>
+                            <tr>
+                    <td>
+                        <a href="https://packagist.org/packages/zendframework/zend-developer-tools/stats">
+                            zend-developer-tools
+                        </a>
+                    </td>
+                    <td class="text-right">    <nobr>
+                    <span class="text-danger">- 4 %</span>
+            </nobr>
+</td>
+                    <td class="text-right">    1 056
+</td>
+                    <td class="text-right">    403 980
+</td>
+                </tr>
+                            <tr>
+                    <td>
+                        <a href="https://packagist.org/packages/zendframework/zend-navigation/stats">
+                            zend-navigation
+                        </a>
+                    </td>
+                    <td class="text-right">    <nobr>
+                    <span class="text-danger">- 4 %</span>
+            </nobr>
+</td>
+                    <td class="text-right">    1 604
+</td>
+                    <td class="text-right">    609 270
+</td>
+                </tr>
+                            <tr>
+                    <td>
+                        <a href="https://packagist.org/packages/zendframework/zend-memory/stats">
+                            zend-memory
+                        </a>
+                    </td>
+                    <td class="text-right">    <nobr>
+                    <span class="text-danger">- 4 %</span>
+            </nobr>
+</td>
+                    <td class="text-right">    1 713
+</td>
+                    <td class="text-right">    663 510
+</td>
+                </tr>
+                            <tr>
+                    <td>
+                        <a href="https://packagist.org/packages/zendframework/zendxml/stats">
+                            zendxml
+                        </a>
+                    </td>
+                    <td class="text-right">    <nobr>
+                    <span class="text-danger">- 5 %</span>
+            </nobr>
+</td>
+                    <td class="text-right">    2 894
+</td>
+                    <td class="text-right">    1 108 410
+</td>
+                </tr>
+                            <tr>
+                    <td>
+                        <a href="https://packagist.org/packages/zendframework/zend-crypt/stats">
+                            zend-crypt
+                        </a>
+                    </td>
+                    <td class="text-right">    <nobr>
+                    <span class="text-danger">- 5 %</span>
+            </nobr>
+</td>
+                    <td class="text-right">    7 186
+</td>
+                    <td class="text-right">    2 698 830
+</td>
+                </tr>
+                            <tr>
+                    <td>
+                        <a href="https://packagist.org/packages/zendframework/zend-xmlrpc/stats">
+                            zend-xmlrpc
+                        </a>
+                    </td>
+                    <td class="text-right">    <nobr>
+                    <span class="text-danger">- 6 %</span>
+            </nobr>
+</td>
+                    <td class="text-right">    1 641
+</td>
+                    <td class="text-right">    635 040
+</td>
+                </tr>
+                            <tr>
+                    <td>
+                        <a href="https://packagist.org/packages/zendframework/zend-i18n-resources/stats">
+                            zend-i18n-resources
+                        </a>
+                    </td>
+                    <td class="text-right">    <nobr>
+                    <span class="text-danger">- 7 %</span>
+            </nobr>
+</td>
+                    <td class="text-right">    1 454
+</td>
+                    <td class="text-right">    550 230
+</td>
+                </tr>
+                            <tr>
+                    <td>
+                        <a href="https://packagist.org/packages/zendframework/zend-progressbar/stats">
+                            zend-progressbar
+                        </a>
+                    </td>
+                    <td class="text-right">    <nobr>
+                    <span class="text-danger">- 7 %</span>
+            </nobr>
+</td>
+                    <td class="text-right">    1 233
+</td>
+                    <td class="text-right">    476 160
+</td>
+                </tr>
+                            <tr>
+                    <td>
+                        <a href="https://packagist.org/packages/zendframework/zend-file/stats">
+                            zend-file
+                        </a>
+                    </td>
+                    <td class="text-right">    <nobr>
+                    <span class="text-danger">- 9 %</span>
+            </nobr>
+</td>
+                    <td class="text-right">    1 334
+</td>
+                    <td class="text-right">    538 080
+</td>
+                </tr>
+                            <tr>
+                    <td>
+                        <a href="https://packagist.org/packages/zendframework/zendframework/stats">
+                            zendframework
+                        </a>
+                    </td>
+                    <td class="text-right">    <nobr>
+                    <span class="text-danger">- 9 %</span>
+            </nobr>
+</td>
+                    <td class="text-right">    1 923
+</td>
+                    <td class="text-right">    758 280
+</td>
+                </tr>
+                    </table>
+            <hr>
+
+        <div class="text-center mb-5">
+            <h2 id="yii">
+                Yii
+            </h2>
+
+            <p>
+                <a href="#table">Jump up ↑</a>
+            </p>
+        </div>
+
+        <table class="table table-bordered mt-4 mt-4" id="yii">
+            <thead class="thead-inverse">
+                <tr>
+                    <th class="w-25">Package</th>
+                    <th class="text-center w-25">
+                        Trend Last Year
+                    </th>
+                    <th class="text-center w-25">
+                        Last month Daily
+                    </th>
+                    <th class="text-center w-25">
+                        Total Last Year
+                    </th>
+                </tr>
+            </thead>
+                            <tr>
+                    <td>
+                        <a href="https://packagist.org/packages/yiisoft/yii2-queue/stats">
+                            yii2-queue
+                        </a>
+                    </td>
+                    <td class="text-right">    <nobr>
+                    <strong>
+                <span class="text-success">+ 38 %</span>
+            </strong>
+            </nobr>
+</td>
+                    <td class="text-right">    1 990
+</td>
+                    <td class="text-right">    595 440
+</td>
+                </tr>
+                            <tr>
+                    <td>
+                        <a href="https://packagist.org/packages/yiisoft/yii2-httpclient/stats">
+                            yii2-httpclient
+                        </a>
+                    </td>
+                    <td class="text-right">    <nobr>
+                    <strong>
+                <span class="text-success">+ 13 %</span>
+            </strong>
+            </nobr>
+</td>
+                    <td class="text-right">    2 479
+</td>
+                    <td class="text-right">    756 750
+</td>
+                </tr>
+                            <tr>
+                    <td>
+                        <a href="https://packagist.org/packages/yiisoft/yii/stats">
+                            yii
+                        </a>
+                    </td>
+                    <td class="text-right">    <nobr>
+                    <strong>
+                <span class="text-success">+ 13 %</span>
+            </strong>
+            </nobr>
+</td>
+                    <td class="text-right">    1 225
+</td>
+                    <td class="text-right">    463 860
+</td>
+                </tr>
+                            <tr>
+                    <td>
+                        <a href="https://packagist.org/packages/yiisoft/yii2/stats">
+                            yii2
+                        </a>
+                    </td>
+                    <td class="text-right">    <nobr>
+                    <strong>
+                <span class="text-success">+ 10 %</span>
+            </strong>
+            </nobr>
+</td>
+                    <td class="text-right">    6 444
+</td>
+                    <td class="text-right">    2 215 920
+</td>
+                </tr>
+                            <tr>
+                    <td>
+                        <a href="https://packagist.org/packages/yiisoft/yii2-jui/stats">
+                            yii2-jui
+                        </a>
+                    </td>
+                    <td class="text-right">    <nobr>
+                    <strong>
+                <span class="text-success">+ 8 %</span>
+            </strong>
+            </nobr>
+</td>
+                    <td class="text-right">    1 871
+</td>
+                    <td class="text-right">    672 390
+</td>
+                </tr>
+                            <tr>
+                    <td>
+                        <a href="https://packagist.org/packages/yiisoft/yii2-redis/stats">
+                            yii2-redis
+                        </a>
+                    </td>
+                    <td class="text-right">    <nobr>
+                    <strong>
+                <span class="text-success">+ 8 %</span>
+            </strong>
+            </nobr>
+</td>
+                    <td class="text-right">    2 107
+</td>
+                    <td class="text-right">    740 610
+</td>
+                </tr>
+                            <tr>
+                    <td>
+                        <a href="https://packagist.org/packages/yiisoft/yii2-debug/stats">
+                            yii2-debug
+                        </a>
+                    </td>
+                    <td class="text-right">    <nobr>
+                    <strong>
+                <span class="text-success">+ 7 %</span>
+            </strong>
+            </nobr>
+</td>
+                    <td class="text-right">    5 129
+</td>
+                    <td class="text-right">    1 841 100
+</td>
+                </tr>
+                            <tr>
+                    <td>
+                        <a href="https://packagist.org/packages/yiisoft/yii2-bootstrap/stats">
+                            yii2-bootstrap
+                        </a>
+                    </td>
+                    <td class="text-right">    <nobr>
+                    <strong>
+                <span class="text-success">+ 5 %</span>
+            </strong>
+            </nobr>
+</td>
+                    <td class="text-right">    5 065
+</td>
+                    <td class="text-right">    1 962 720
+</td>
+                </tr>
+                            <tr>
+                    <td>
+                        <a href="https://packagist.org/packages/yiisoft/yii2-swiftmailer/stats">
+                            yii2-swiftmailer
+                        </a>
+                    </td>
+                    <td class="text-right">    <nobr>
+                    <strong>
+                <span class="text-success">+ 5 %</span>
+            </strong>
+            </nobr>
+</td>
+                    <td class="text-right">    5 157
+</td>
+                    <td class="text-right">    1 862 130
+</td>
+                </tr>
+                            <tr>
+                    <td>
+                        <a href="https://packagist.org/packages/yiisoft/yii2-gii/stats">
+                            yii2-gii
+                        </a>
+                    </td>
+                    <td class="text-right">    <nobr>
+                    <strong>
+                <span class="text-success">+ 3 %</span>
+            </strong>
+            </nobr>
+</td>
+                    <td class="text-right">    3 900
+</td>
+                    <td class="text-right">    1 484 700
+</td>
+                </tr>
+                            <tr>
+                    <td>
+                        <a href="https://packagist.org/packages/yiisoft/yii2-composer/stats">
+                            yii2-composer
+                        </a>
+                    </td>
+                    <td class="text-right">    <nobr>
+                    <strong>
+                <span class="text-success">+ 1 %</span>
+            </strong>
+            </nobr>
+</td>
+                    <td class="text-right">    5 851
+</td>
+                    <td class="text-right">    2 149 290
+</td>
+                </tr>
+                            <tr>
+                    <td>
+                        <a href="https://packagist.org/packages/yiisoft/yii2-imagine/stats">
+                            yii2-imagine
+                        </a>
+                    </td>
+                    <td class="text-right">    <nobr>
+                    <span class="text-danger">- 1 %</span>
+            </nobr>
+</td>
+                    <td class="text-right">    1 066
+</td>
+                    <td class="text-right">    382 710
+</td>
+                </tr>
+                            <tr>
+                    <td>
+                        <a href="https://packagist.org/packages/yiisoft/yii2-faker/stats">
+                            yii2-faker
+                        </a>
+                    </td>
+                    <td class="text-right">    <nobr>
+                    <span class="text-danger">- 2 %</span>
+            </nobr>
+</td>
+                    <td class="text-right">    3 505
+</td>
+                    <td class="text-right">    1 318 350
+</td>
+                </tr>
+                            <tr>
+                    <td>
+                        <a href="https://packagist.org/packages/yiisoft/yii2-authclient/stats">
+                            yii2-authclient
+                        </a>
+                    </td>
+                    <td class="text-right">    <nobr>
+                    <span class="text-danger">- 3 %</span>
+            </nobr>
+</td>
+                    <td class="text-right">    1 350
+</td>
+                    <td class="text-right">    466 020
+</td>
+                </tr>
+                    </table>
+            <hr>
+
+        <div class="text-center mb-5">
+            <h2 id="nette">
+                Nette
+            </h2>
+
+            <p>
+                <a href="#table">Jump up ↑</a>
+            </p>
+        </div>
+
+        <table class="table table-bordered mt-4 mt-4" id="nette">
+            <thead class="thead-inverse">
+                <tr>
+                    <th class="w-25">Package</th>
+                    <th class="text-center w-25">
+                        Trend Last Year
+                    </th>
+                    <th class="text-center w-25">
+                        Last month Daily
+                    </th>
+                    <th class="text-center w-25">
+                        Total Last Year
+                    </th>
+                </tr>
+            </thead>
+                            <tr>
+                    <td>
+                        <a href="https://packagist.org/packages/nette/php-generator/stats">
+                            php-generator
+                        </a>
+                    </td>
+                    <td class="text-right">    <nobr>
+                    <strong>
+                <span class="text-success">+ 58 %</span>
+            </strong>
+            </nobr>
+</td>
+                    <td class="text-right">    2 060
+</td>
+                    <td class="text-right">    668 310
+</td>
+                </tr>
+                            <tr>
+                    <td>
+                        <a href="https://packagist.org/packages/nette/utils/stats">
+                            utils
+                        </a>
+                    </td>
+                    <td class="text-right">    <nobr>
+                    <strong>
+                <span class="text-success">+ 41 %</span>
+            </strong>
+            </nobr>
+</td>
+                    <td class="text-right">    4 033
+</td>
+                    <td class="text-right">    1 133 790
+</td>
+                </tr>
+                            <tr>
+                    <td>
+                        <a href="https://packagist.org/packages/nette/forms/stats">
+                            forms
+                        </a>
+                    </td>
+                    <td class="text-right">    <nobr>
+                    <span class="text-danger">- 0 %</span>
+            </nobr>
+</td>
+                    <td class="text-right">    1 324
+</td>
+                    <td class="text-right">    458 700
+</td>
+                </tr>
+                            <tr>
+                    <td>
+                        <a href="https://packagist.org/packages/nette/security/stats">
+                            security
+                        </a>
+                    </td>
+                    <td class="text-right">    <nobr>
+                    <span class="text-danger">- 1 %</span>
+            </nobr>
+</td>
+                    <td class="text-right">    1 240
+</td>
+                    <td class="text-right">    457 470
+</td>
+                </tr>
+                            <tr>
+                    <td>
+                        <a href="https://packagist.org/packages/nette/component-model/stats">
+                            component-model
+                        </a>
+                    </td>
+                    <td class="text-right">    <nobr>
+                    <span class="text-danger">- 2 %</span>
+            </nobr>
+</td>
+                    <td class="text-right">    1 483
+</td>
+                    <td class="text-right">    529 590
+</td>
+                </tr>
+                            <tr>
+                    <td>
+                        <a href="https://packagist.org/packages/nette/application/stats">
+                            application
+                        </a>
+                    </td>
+                    <td class="text-right">    <nobr>
+                    <span class="text-danger">- 2 %</span>
+            </nobr>
+</td>
+                    <td class="text-right">    1 382
+</td>
+                    <td class="text-right">    517 770
+</td>
+                </tr>
+                            <tr>
+                    <td>
+                        <a href="https://packagist.org/packages/nette/finder/stats">
+                            finder
+                        </a>
+                    </td>
+                    <td class="text-right">    <nobr>
+                    <span class="text-danger">- 2 %</span>
+            </nobr>
+</td>
+                    <td class="text-right">    1 975
+</td>
+                    <td class="text-right">    643 500
+</td>
+                </tr>
+                            <tr>
+                    <td>
+                        <a href="https://packagist.org/packages/nette/http/stats">
+                            http
+                        </a>
+                    </td>
+                    <td class="text-right">    <nobr>
+                    <span class="text-danger">- 4 %</span>
+            </nobr>
+</td>
+                    <td class="text-right">    1 552
+</td>
+                    <td class="text-right">    564 990
+</td>
+                </tr>
+                            <tr>
+                    <td>
+                        <a href="https://packagist.org/packages/nette/mail/stats">
+                            mail
+                        </a>
+                    </td>
+                    <td class="text-right">    <nobr>
+                    <span class="text-danger">- 5 %</span>
+            </nobr>
+</td>
+                    <td class="text-right">    1 484
+</td>
+                    <td class="text-right">    549 960
+</td>
+                </tr>
+                            <tr>
+                    <td>
+                        <a href="https://packagist.org/packages/nette/reflection/stats">
+                            reflection
+                        </a>
+                    </td>
+                    <td class="text-right">    <nobr>
+                    <span class="text-danger">- 7 %</span>
+            </nobr>
+</td>
+                    <td class="text-right">    1 425
+</td>
+                    <td class="text-right">    563 250
+</td>
+                </tr>
+                            <tr>
+                    <td>
+                        <a href="https://packagist.org/packages/nette/safe-stream/stats">
+                            safe-stream
+                        </a>
+                    </td>
+                    <td class="text-right">    <nobr>
+                    <span class="text-danger">- 7 %</span>
+            </nobr>
+</td>
+                    <td class="text-right">    1 033
+</td>
+                    <td class="text-right">    389 700
+</td>
+                </tr>
+                            <tr>
+                    <td>
+                        <a href="https://packagist.org/packages/nette/caching/stats">
+                            caching
+                        </a>
+                    </td>
+                    <td class="text-right">    <nobr>
+                    <span class="text-danger">- 9 %</span>
+            </nobr>
+</td>
+                    <td class="text-right">    2 325
+</td>
+                    <td class="text-right">    897 240
+</td>
+                </tr>
+                            <tr>
+                    <td>
+                        <a href="https://packagist.org/packages/nette/robot-loader/stats">
+                            robot-loader
+                        </a>
+                    </td>
+                    <td class="text-right">    <nobr>
+                    <span class="text-danger">- 15 %</span>
+            </nobr>
+</td>
+                    <td class="text-right">    1 374
+</td>
+                    <td class="text-right">    441 960
+</td>
+                </tr>
+                    </table>
+            <hr>
+
+        <div class="text-center mb-5">
+            <h2 id="cakephp">
+                CakePHP
+            </h2>
+
+            <p>
+                <a href="#table">Jump up ↑</a>
+            </p>
+        </div>
+
+        <table class="table table-bordered mt-4 mt-4" id="cakephp">
+            <thead class="thead-inverse">
+                <tr>
+                    <th class="w-25">Package</th>
+                    <th class="text-center w-25">
+                        Trend Last Year
+                    </th>
+                    <th class="text-center w-25">
+                        Last month Daily
+                    </th>
+                    <th class="text-center w-25">
+                        Total Last Year
+                    </th>
+                </tr>
+            </thead>
+                            <tr>
+                    <td>
+                        <a href="https://packagist.org/packages/cakephp/utility/stats">
+                            utility
+                        </a>
+                    </td>
+                    <td class="text-right">    <nobr>
+                    <strong>
+                <span class="text-success">+ 86 %</span>
+            </strong>
+            </nobr>
+</td>
+                    <td class="text-right">    3 367
+</td>
+                    <td class="text-right">    836 670
+</td>
+                </tr>
+                            <tr>
+                    <td>
+                        <a href="https://packagist.org/packages/cakephp/chronos/stats">
+                            chronos
+                        </a>
+                    </td>
+                    <td class="text-right">    <nobr>
+                    <strong>
+                <span class="text-success">+ 19 %</span>
+            </strong>
+            </nobr>
+</td>
+                    <td class="text-right">    10 978
+</td>
+                    <td class="text-right">    3 332 160
+</td>
+                </tr>
+                            <tr>
+                    <td>
+                        <a href="https://packagist.org/packages/cakephp/debug_kit/stats">
+                            debug_kit
+                        </a>
+                    </td>
+                    <td class="text-right">    <nobr>
+                    <span class="text-danger">- 13 %</span>
+            </nobr>
+</td>
+                    <td class="text-right">    2 414
+</td>
+                    <td class="text-right">    1 000 650
+</td>
+                </tr>
+                            <tr>
+                    <td>
+                        <a href="https://packagist.org/packages/cakephp/migrations/stats">
+                            migrations
+                        </a>
+                    </td>
+                    <td class="text-right">    <nobr>
+                    <span class="text-danger">- 13 %</span>
+            </nobr>
+</td>
+                    <td class="text-right">    1 980
+</td>
+                    <td class="text-right">    854 880
+</td>
+                </tr>
+                            <tr>
+                    <td>
+                        <a href="https://packagist.org/packages/cakephp/plugin-installer/stats">
+                            plugin-installer
+                        </a>
+                    </td>
+                    <td class="text-right">    <nobr>
+                    <span class="text-danger">- 14 %</span>
+            </nobr>
+</td>
+                    <td class="text-right">    1 969
+</td>
+                    <td class="text-right">    864 480
+</td>
+                </tr>
+                            <tr>
+                    <td>
+                        <a href="https://packagist.org/packages/cakephp/bake/stats">
+                            bake
+                        </a>
+                    </td>
+                    <td class="text-right">    <nobr>
+                    <span class="text-danger">- 15 %</span>
+            </nobr>
+</td>
+                    <td class="text-right">    1 796
+</td>
+                    <td class="text-right">    785 790
+</td>
+                </tr>
+                            <tr>
+                    <td>
+                        <a href="https://packagist.org/packages/cakephp/cakephp-codesniffer/stats">
+                            cakephp-codesniffer
+                        </a>
+                    </td>
+                    <td class="text-right">    <nobr>
+                    <span class="text-danger">- 19 %</span>
+            </nobr>
+</td>
+                    <td class="text-right">    1 617
+</td>
+                    <td class="text-right">    692 460
+</td>
+                </tr>
+                            <tr>
+                    <td>
+                        <a href="https://packagist.org/packages/cakephp/cakephp/stats">
+                            cakephp
+                        </a>
+                    </td>
+                    <td class="text-right">    <nobr>
+                    <span class="text-danger">- 22 %</span>
+            </nobr>
+</td>
+                    <td class="text-right">    3 263
+</td>
+                    <td class="text-right">    1 374 690
+</td>
+                </tr>
+                    </table>
+    
+    <h2 class="mb-4" id="methodology">Methodology Notes</h2>
+
+    <p>Few outlier packages were removed to make numbers more relevant. To be specific:</p>
+
+    <ul>
+        <li><code>symfony/*</code> downloads are cleared from <code>laravel/*</code> downloads = when you download Laravel package, it will not count into Symfony download; see <a href="https://github.com/TomasVotruba/tomasvotruba.cz/blob/master/src/Packagist/Purifier/InterveningPackagesPurifier.php#L17">full list of cleared packages</a></li>
+
+        <li>
+            packages with <strong>less than 1000 downloads daily</strong> - not relevant compared in this scale
+
+            <ul>
+                <li>this limit was not passed by CodeIgniter, so it's excluded for now</li>
+            </ul>
+        </li>
+        <li>packages with <strong>history shorter than 12 months</strong> - they created extreme trends</li>
+        <li>packages with <strong>year trend bigger than 300 %</strong> - they're caused either by "hype" effect, that distorted average vendor trend, or by new interdependency</li>
+        <li><code>phpstan/phpstan</code> and <code>friendsofphp/php-cs-fixer</code> downloads are cleaned from statistics to prevent miss-leading numbers</li>
+    </ul>
+
+    <br>
+
+    <h2 class="mb-4">Thank You</h2>
+
+    <ul class="normal-list">
+        <li>Thanks to <a href="https://github.com/jkuchar">Jan Kuchar</a> for CI tools exclusion idea that made the numbers more relevant.</li>
+        <li>Thanks to <a href="https://github.com/garas">Edgaras Janušauskas</a> for correction of cakephp extreme trends.</li>
+        <li>
+            This overview is build thanks to amazing intuitive <a href="https://packagist.org/apidoc">Packagist API</a> - thanks Jordi Boggiano and Nils Adermann for creating it.
+        </li>
+    </ul>
+
+
+
+    <h2 id="comments">What Do You Think?</h2>
+
+    <div id="disqus_thread"></div>
+
+<script type="text/javascript">
+    /**
+     *  RECOMMENDED CONFIGURATION VARIABLES: EDIT AND UNCOMMENT THE SECTION BELOW TO INSERT DYNAMIC VALUES FROM YOUR PLATFORM OR CMS.
+     *  LEARN WHY DEFINING THESE VARIABLES IS IMPORTANT: https://disqus.com/admin/universalcode/#configuration-variables
+     */
+    (function() {  // DON'T EDIT BELOW THIS LINE
+        var d = document, s = d.createElement('script');
+
+        s.src = '//' + 'itsworthsharing' + '.disqus.com/embed.js';
+
+        s.setAttribute('data-timestamp', +new Date());
+        (d.head || d.body).appendChild(s);
+    })();
+</script>
+</div>        </div>
+
+        <script src="/assets/js/jquery-3.3.1.slim.min.js?=1844496767"></script>
+<script src="/assets/gifplayer/jquery.gifplayer.js?=629606252"></script>
+<script src="/assets/js/cluster-checklist.js?=1036710651"></script>
+<script src="/assets/js/cluster-expanable.js?=1894320959"></script>
+
+<script>
+    ga=function(){ ga.q.push(arguments) };
+    ga.q=[];
+    ga.l=+new Date;
+    ga('create', 'UA-46082345-1', 'auto');
+    ga('send','pageview');
+</script>
+<script src="https://www.google-analytics.com/analytics.js" async defer></script>
+
+<script src="/assets/prism/prism.js"></script>
+
+<script>
+    $('.gifplayer').gifplayer();
+</script>
+
+<div class="text-center mt-5" id="footer">
+    <div class="row">
+        <div class="col-12">
+            Join 17 579 PHP developers every month: <a href="/rss.xml">RSS</a>&nbsp;or&nbsp;<a href="https://twitter.com/votrubaT">@votrubaT</a>
+        </div>
+    </div>
+
+    <p>
+        Build by <a href="/thank-you/">72 people</a>
+
+        <span class="pl-2 pr-2">•</span>
+
+        <a href="https://patreon.com/rectorphp">Support me</a>
+
+        <span class="pl-2 pr-2">•</span>
+
+        <a href="/now/">Now</a>
+
+        <span class="hidden-sm-down">
+            <span class="pl-2 pr-2">•</span>
+            Hosted with <a href="https://www.statie.org/">Statie</a> on <a href="https://github.com/tomasvotruba/tomasvotruba.cz">GitHub</a>
+        </span>
+    </p>
+</div>
+    </body>
+</html>

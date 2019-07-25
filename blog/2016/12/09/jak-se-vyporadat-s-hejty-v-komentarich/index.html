@@ -1,0 +1,297 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+    <title>Jak se vypořádat s hejty v komentářích | Tomas Votruba</title>
+    <meta charset="utf-8">
+    <meta name="robots" content="index, follow">
+
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <meta name="mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+
+    
+    <link rel="alternate" type="application/rss+xml" title="Tomas Votruba Blog RSS" href="/rss.xml">
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,700" rel="stylesheet">
+
+        <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.2.0/css/solid.css" integrity="sha384-wnAC7ln+XN0UKdcPvJvtqIH3jOjs9pnKnq9qX68ImXvOGz2JuFoEiCjT8jyZQX2z" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.2.0/css/brands.css" integrity="sha384-nT8r1Kzllf71iZl81CdFzObMsaLOhqBU1JD2+XoAALbdtWaXDOlWOZTR4v1ktjPE" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.2.0/css/fontawesome.css" integrity="sha384-HbmWTHay9psM8qyzEKPc8odH4DsOuzdejtnr+OFtDmOcIVnhgReQ4GZBH7uwcjf6" crossorigin="anonymous">
+
+        <link href="/assets/bootstrap/bootstrap.min.css?v=749088939" rel="stylesheet" type="text/css" />
+
+    <link href="/assets/prism/prism.css?v=1358936434" rel="stylesheet" type="text/css" />
+
+        <link href="/assets/css/style.css?v=552003533" rel="stylesheet" type="text/css" />
+
+    <link href="/assets/gifplayer/gifplayer.css" rel="stylesheet" type="text/css" />
+
+        <link href="/assets/css/checklist.css?v=1383759398" rel="stylesheet" type="text/css" />
+</head>
+    <body>
+        <!-- post_id: 96 -->
+
+        <div class="hidden-sm-down">
+    <nav class="navbar">
+        <div class="container-fluid">
+            <ul>
+                <li id="logo">
+                    <img src="https://avatars1.githubusercontent.com/u/924196?s=60&v=4" class="avatar">
+                    Tomas Votruba
+                </li>
+                <li class="active">
+                    <a href="/">Blog</a>
+                </li>
+                <li class="">
+                    <a href="/php-framework-trends/">Trends</a>
+                </li>
+                <li class="">
+                    <a href="/clusters/">Clusters</a>
+                </li>
+                <li class="">
+                    <a href="/mission/">Mission</a>
+                </li>
+                <li class="">
+                    <a href="/talks/">Talks</a>
+                </li>
+                <li class="">
+                    <a href="/contact/">Contact</a>
+                </li>
+                <li id="top-menu-search">
+                    <form method="get" action="https://www.google.com/search" itemprop="potentialAction" itemscope="" itemtype="http://schema.org/SearchAction">
+                        <meta itemprop="target" content="https://www.google.com/search?q={q}"/>
+                        <input name="sitesearch" value="tomasvotruba.cz" type="hidden"/>
+                        <input itemprop="query-input" type="text" id="search-query" class="form-control" required="required" name="q" placeholder="Search..." autocomplete="off"/>
+                    </form>
+                </li>
+            </ul>
+        </div>
+    </nav>
+</div>
+
+<div class="hidden-md-up">
+    <nav class="navbar" id="mobile-menu">
+        <div class="container">
+            <a href="/" class="col-3 col-sm-3 active">
+                <em class="fas fa-book"></em>
+                <br>
+                PHP Blog
+            </a>
+            <a href="/clusters/" class="col-3 col-sm-3 ">
+                <em class="fas fa-share-alt"></em>
+                <br>
+                Clusters
+            </a>
+            <a href="/php-framework-trends/" class="col-3 col-sm-3 ">
+                <em class="fas fa-chart-bar"></em>
+                <br>
+                Trends
+            </a>
+            <a href="/contact/" class="col-3 col-sm-3 ">
+                <em class="fas fa-phone"></em>
+                <br>
+                Contact
+            </a>
+        </div>
+    </nav>
+
+    <div class="hidden-md-up text-center row" id="top-menu-search-mobile">
+        <!-- inspired and taken from: https://github.com/yegor256/blog/blob/master/_layouts/default.html -->
+        <form method="get" action="https://www.google.com/search" itemprop="potentialAction" itemscope="" itemtype="http://schema.org/SearchAction" class="col-md-12">
+            <meta itemprop="target" content="https://www.google.com/search?q={q}"/>
+            <input name="sitesearch" value="tomasvotruba.cz" type="hidden"/>
+            <input itemprop="query-input" type="text" id="search-query" class="form-control" required="required" name="q" placeholder="Search with Google..." autocomplete="off"/>
+        </form>
+    </div>
+</div>
+
+        <div class="mainContent">
+            <div class="container-fluid" id="post">
+                <h1>Jak se vypořádat s hejty v komentářích</h1>
+
+                <ul class="list-inline post-metadata">
+    <li class="list-inline-item mr-3">
+        <em class="fas fa-clock fa-fw"></em>
+        <strong>2 min</strong>
+    </li>
+
+    <li class="list-inline-item mr-3">
+        <em class="fas fa-calendar fa-fw"></em>
+        <time datetime="2016-12-Fri">
+            
+                            Fri, Dec 9, 2016
+            
+                    </time>
+    </li>
+
+    
+            <li class="list-inline-item mr-3">
+            <em class="fas fa-fw fa-comments"></em>
+            <a href="https://www.tomasvotruba.cz/blog/2016/12/09/jak-se-vyporadat-s-hejty-v-komentarich/#disqus_thread">X</a> comments
+        </li>
+    
+    </ul>
+
+                                    <div class="card border-danger card-bigger">
+                        <div class="card-header text-white bg-danger">
+                            <strong>This post is deprecated since August 2017</strong>
+                        </div>
+                        <div class="card-body">
+                            This post is available only in Czech and whole website was moved to English.
+                        </div>
+                    </div>
+
+                    <br>
+                
+                
+                <div class="card card-bigger">
+                    <div class="card-body">
+                        Na to se mě včera zeptal už asi pátý člověk. Jak se vypořádat s tím, když píšu článek, Tweetuju, prostě dělám bohulibou osvětu dobrým věcem, a někomu se to nelíbí a háže na mě špínu?
+                    </div>
+                </div>
+
+                
+                <p>Tenhle proces jsem se učil 1 rok jako maintainer <a href="https://github.com/apigen/apigen">ApiGenu</a>, kdy jsem s desítkami lidí vedl online-hate-wars a zjistil, že to nikam nevede. Pak jsem zkoušel jiné cesty. Úspěšnější.</p>
+<p>Dnes ti je zkusím shrnout do 3 bodů.</p>
+<h2 id="1-zpracuju-emoci"><a href="#1-zpracuju-emoci" class="heading-anchor">1. Zpracuju emoci</a></h2>
+<p>Ano, bolí to. Když napíšu návod, jak se vyrovnat s hatery, a někdo mi napíše, že JE TO BLBOST, bolí to. Dal jsem si s tím tolik práce a
+místo lajku dostanu facku. <strong>Ve skutečnosti mi dává feedback. Při troše snahy i konstruktivní.</strong></p>
+<p>Co mi teda chce sdělit za informaci? V 90 % případech:</p>
+<ul>
+<li>„Nerozumím tomu.“</li>
+<li>„Pochopil jsem to jinak, než jsi to myslel.“</li>
+<li>„Vidím to jinak.“</li>
+</ul>
+<p>Nereaguju hned. Když se cítím nepříjemně, vracel bych stejnou emoci a stejnou bych dostal.</p>
+<p>Dám si třeba hoďku pauzu.</p>
+<h2 id="2-zajimam-se"><a href="#2-zajimam-se" class="heading-anchor">2. Zajímám se</a></h2>
+<p>Chci zjistit, co toho druhého trápí. Dává mi zpětnou vazbu, ale ještě jí nerozumím. Je na mně, abych zjistil, jak mi to může pomoci napsat příště lepší článek.</p>
+<h3 id="jak-muzu-reagovat"><a href="#jak-muzu-reagovat" class="heading-anchor">Jak můžu reagovat?</a></h3>
+<ul>
+<li>„Je to totální blbost“ =&gt; S čím nesouhlasíš?</li>
+<li>„Takhle to nikdy nefunguje“ =&gt; Jak myslíš, že to fungovat může?</li>
+<li>„Seš debil“ =&gt; Proč si to myslíš?</li>
+</ul>
+<p>Poslední reakce je na zvážení a vždycky záleží na kontextu situace. Ve většině případů je ale reakce <strong>o něco konstruktivnější než první komentář</strong>. A to mi stačí. <strong>Odnesu si z toho víc, než kdybych mlčel nebo vracel emoci zpátky</strong>.</p>
+<h2 id="3-zvazim-jestli-to-stoji-za-to-a-iteruju"><a href="#3-zvazim-jestli-to-stoji-za-to-a-iteruju" class="heading-anchor">3. Zvážím, jestli to stojí za to, a iteruju</a></h2>
+<p>Baby steps. Nečekám, že mi na mou první odpověď někdo napíše positivní/prorůstový/sendvičový feedback.
+Někdy to trvá, někdy mám regresi, ale vzpomenu si na bod 1. Když to nejde, nechám to být, a zkusím odpověďět jinde. Třeba to půjde líp.</p>
+<p>Často se pak dostaneme od potenciální hádky k tomu, že ten člověk pošle Pull-Request. A někdy zůstaneme u debila :)</p>
+<p><strong>Zajímáte tě, jak snížit riziko hejtování už při psání článku?</strong></p>
+<p>Dej vědět, třeba napíšu pokračování.</p>
+<p><em>P.S.: Pokud jsi ten, kdo špínu háže, mám pro tebe pár tipů, jak správně hejtovat - <a href="https://youtu.be/D827D5ILfh8?t=156">Hejtování 101</a>.</em></p>
+
+                <br>
+
+                
+                <div class="row mb-3">
+                    <div class="col-12 col-md-6">
+                        <div class="card mb-4">
+                            <div class="card-body text-center">
+                                <em class="fab fa-fw fa-github"></em>
+                                    Found a typo?
+                                <a href="https://github.com/TomasVotruba/tomasvotruba.cz/edit/master/source/_posts/2016/2016-12-09-jak-se-vyporadat-s-hejty-v-komentarich.md">Fix it</a> to <strong>join team of 64 people</strong> that improve content here
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-12 col-md-6">
+                                                                                                                                
+                                                    <div class="card mb-4">
+                                <div class="card-body bg-success text-white text-center">
+                                    <strong>Next</strong>:
+                                    <a href="/blog/2017/01/10/jak-psat-zajimave-inzeraty-pro-ajtaky/">Jak psát zajímavé inzeráty pro ajťáky</a>
+                                </div>
+                            </div>
+                                            </div>
+                </div>
+
+                <div class="card mb-5 border-0">
+                    <div class="card-body text-center">
+                        <p>
+                                                            ❤️️ Do you <strong>like</strong> what I write about? Or do you <strong>hate it</strong> but enjoy discussion? 😠
+                                <br>
+                                You can support my writing by throwing a <a href="https://patreon.com/rectorphp">couple bucks at my Patreon</a>
+                                                    </p>
+                    </div>
+                </div>
+
+                <a name="comments"></a>
+
+                <div id="disqus_thread"></div>
+
+<script type="text/javascript">
+    /**
+     *  RECOMMENDED CONFIGURATION VARIABLES: EDIT AND UNCOMMENT THE SECTION BELOW TO INSERT DYNAMIC VALUES FROM YOUR PLATFORM OR CMS.
+     *  LEARN WHY DEFINING THESE VARIABLES IS IMPORTANT: https://disqus.com/admin/universalcode/#configuration-variables
+     */
+    (function() {  // DON'T EDIT BELOW THIS LINE
+        var d = document, s = d.createElement('script');
+
+        s.src = '//' + 'itsworthsharing' + '.disqus.com/embed.js';
+
+        s.setAttribute('data-timestamp', +new Date());
+        (d.head || d.body).appendChild(s);
+    })();
+</script>
+            </div>
+
+            <script id="dsq-count-scr" src="https://itsworthsharing.disqus.com/count.js" async defer></script>
+        </div>
+
+        <script src="/assets/js/jquery-3.3.1.slim.min.js?=1776532258"></script>
+<script src="/assets/gifplayer/jquery.gifplayer.js?=818505492"></script>
+<script src="/assets/js/cluster-checklist.js?=1972592679"></script>
+<script src="/assets/js/cluster-expanable.js?=77287204"></script>
+
+<script>
+    ga=function(){ ga.q.push(arguments) };
+    ga.q=[];
+    ga.l=+new Date;
+    ga('create', 'UA-46082345-1', 'auto');
+    ga('send','pageview');
+</script>
+<script src="https://www.google-analytics.com/analytics.js" async defer></script>
+
+<script src="/assets/prism/prism.js"></script>
+
+<script>
+    $('.gifplayer').gifplayer();
+</script>
+
+<div class="text-center mt-5" id="footer">
+    <div class="row">
+        <div class="col-12">
+            Join 17 579 PHP developers every month: <a href="/rss.xml">RSS</a>&nbsp;or&nbsp;<a href="https://twitter.com/votrubaT">@votrubaT</a>
+        </div>
+    </div>
+
+    <p>
+        Build by <a href="/thank-you/">72 people</a>
+
+        <span class="pl-2 pr-2">•</span>
+
+        <a href="https://patreon.com/rectorphp">Support me</a>
+
+        <span class="pl-2 pr-2">•</span>
+
+        <a href="/now/">Now</a>
+
+        <span class="hidden-sm-down">
+            <span class="pl-2 pr-2">•</span>
+            Hosted with <a href="https://www.statie.org/">Statie</a> on <a href="https://github.com/tomasvotruba/tomasvotruba.cz">GitHub</a>
+        </span>
+    </p>
+</div>
+    </body>
+</html>
+
+        <meta property="og:type" content="article" />
+    <meta property="og:title" content="Jak se vypořádat s hejty v komentářích" />
+    <meta property="og:description" content="Na to se mě včera zeptal už asi pátý člověk. Jak se vypořádat s tím, když píšu článek, Tweetuju, prostě dělám bohulibou osvětu dobrým věcem, a někomu se to nelíbí a háže na mě špínu?" />
+    <meta property="og:url" content="https://www.tomasvotruba.cz/blog/2016/12/09/jak-se-vyporadat-s-hejty-v-komentarich" />
+
+        <meta name="twitter:card" content="summary" />
+    <meta name="twitter:site" content="@votrubaT">
+    <meta name="twitter:title" content="Jak se vypořádat s hejty v komentářích" />
+    <meta name="twitter:description" content="Na to se mě včera zeptal už asi pátý člověk. Jak se vypořádat s tím, když píšu článek, Tweetuju, prostě dělám bohulibou osvětu dobrým věcem, a někomu se to nelíbí a háže na mě špínu?" />
